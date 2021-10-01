@@ -13,7 +13,7 @@
     >
     <link rel="stylesheet" href="./css/style.css">
     <link rel="icon" href="./img/icon-index.png">
-    <title>STRING Animes</title>
+    <title>STRING cultura asiatica</title>
   </head>
   <body>
     <header>
