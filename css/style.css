@@ -1,0 +1,233 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: black;
+}
+
+.navbar-custom{
+    padding: 18px 0;
+}
+
+.navIcon{
+    width: 50px;
+    opacity: 0.6;
+    transition: 0.3s;
+}
+
+.navIcon:hover{opacity: 1;}
+
+.text-decoration-none{text-decoration: none !important;}
+
+.navbar-strong-name{
+    padding: 0 8px;
+    margin: 0;
+}
+
+#string-span{
+    color: #2BFF67;
+    font-size: 20px;
+    opacity: 0.6;
+    transition: 0.3s;
+}
+
+#anime-span{
+    color: #853bd4;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+#string-span:hover{opacity: 1;}
+
+.bg-customColor1{
+    background: black;
+}
+
+.container-fluid{
+    padding: 0;
+}
+
+.img-banner{
+    border-top: 1.5px solid #853bd4;
+    border-bottom: 1.5px solid #853bd4;
+    width: 100%;
+    height: 300px;
+}
+
+.loginBtn{
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+.loginIcon{
+    transition: stroke 0.4s ease-in-out;
+}
+
+.loginIcon:hover{
+    stroke: green;
+}
+
+.main-bg-black{
+    background: black;
+}
+
+.click-card:hover{
+    cursor: pointer;
+}
+
+.custom-card:hover{
+    background-color: rgb(21, 10, 26);
+}
+
+.custom-card{
+    padding: 7px 5px;
+    background-color: black;
+    border: #853bd4 2px solid;
+    width: 280px;
+    transition: 0.4s;
+}
+
+.titulo-card{
+    color: white;
+    font-size: 22px;
+    font-weight: bolder;
+}
+
+.sinopse{
+    color: white;
+    justify-content: baseline;
+    width: 100%;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.sinopse > div {
+    display: inline;
+    padding-right: 10px;
+}
+
+.sinopse a{
+    position: absolute;
+    color: #2BFF67;
+}
+
+.btn-editar{
+    transition: 0.4s;
+    width: 80px;
+}
+
+.btn-excluir{
+    transition: 0.4s;
+    width: 80px;
+}
+
+.btn-editar:hover{
+    background-color: #2BFF67;
+    color: white;
+    font-weight: bolder;
+}
+
+.btn-excluir:hover{
+    background-color: red;
+    color: white;
+    font-weight: bolder;
+}
+
+#formAnime{
+    display: none;
+}
+
+.plus-card{
+    height: 533px;
+    transition: 0.5s;
+}
+
+.plus-card:hover{
+    background-color: #020c05;
+    border: #2BFF67 2px solid;
+    cursor: pointer;
+}
+
+.plus-card:hover svg{
+    stroke: #2BFF67;
+}
+
+.plus-card svg{
+    transition: 0.5s;
+}
+
+.plus{
+    padding: 75% 0;
+}
+
+.input-adicionar-anime{
+    margin-bottom: 10px;
+    width: 90%;
+    background-color: black;
+    border: #2BFF67 solid 2px;
+    outline: none;
+    color: white;
+    appearance: none;
+}
+
+.input-adicionar-anime::placeholder{
+    text-align: center;
+    color: white;
+}
+
+.input-adicionar-anime:focus,.input-adicionar-anime:hover {
+    border: #853bd4 solid 2px;
+    color: white;
+}
+
+.select-adicionar-anime{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-apperance: none;
+    -ms-appearance: none;
+    appearance: none;
+    display: block;
+    margin-bottom: 10px;
+    width: 90%;
+    text-align: center;
+    color: white;
+    background-color: black;
+    outline: none;
+    border: #2BFF67 2px solid;
+    cursor: pointer;
+}
+
+.select-adicionar-anime:focus{
+    border: #853bd4 solid 2px;
+}
+
+.submit-adicionar-anime{
+    appearance: none;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    background-color: #2BFF67;
+    color: black;
+    font-weight: bolder;
+    margin: 15px 0;
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.submit-adicionar-anime:hover{
+    padding: 8px;
+    background-color: #853bd4;
+    color: white;
+}
+
+
