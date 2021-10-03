@@ -12,7 +12,7 @@ Site feito para o nosso 4º bimestre na matéria "Lingua de Programação Web", 
 O projeto é a baseado em um site de animes no qual o usuário poderá adicionar os animes que quiser e também poderá fazer um cadastro ou login para acessar seu perfil.
 
 ### Instalação:
-Será necessário um banco de dados para que as funções do site funcionem, nesse caso utilizamos o [MySQL Workbench](https://www.mysql.com) e para criar o banco, utilizamos o seguinte script:
+Será necessário um banco de dados para que as funções do site funcionem, nesse caso utilizamos o [MySQL Workbench](https://www.mysql.com) para criação do banco e utilizamos o seguinte script para criá-lo:
 
 ~~~sql
 CREATE DATABASE IF NOT EXISTS string_animes;/*Criando o banco de dados*/
