@@ -4,7 +4,7 @@ Site feito para o nosso 4º bimestre na matéria "Lingua de Programação Web", 
 ### Grupo:
 * [Carlos Eduardo do Amaral](https://github.com/IKeepProgramming)
 * [Cauê Pacheco Palma](https://github.com/Tsuki25)
-* [Eduardo Ferreira Silva]
+* Eduardo Ferreira Silva
 * [Luan Tavares de Lima](https://github.com/Tavaress17)
 * [Rafael Aparecido Marinho](https://github.com/fael890)
 
