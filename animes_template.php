@@ -11,17 +11,19 @@
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" 
         crossorigin="anonymous"
     >
+    <!--CSS, Icone e Titulo da Aba-->
     <link rel="stylesheet" href="./css/style.css">
     <link rel="icon" href="./img/icon-index.png">
     <title>STRING Animes</title>
   </head>
   <body>
     <header>
-      <div class="navbar-custom navbar navbar-dark bg-customColor1 shadow-sm">
-        <div class="container string-animes-navbar">
+      <!--Navbar-->
+      <div class="py-3 navbar bg-black">
+        <div class="container">
           <a href="index.php" class="text-decoration-none">
             <img class="navIcon" src="./img/icon-index.png" alt="Ícone Site">
-            <strong class="navbar-strong-name">
+            <strong class="px-2 m-0">
               <span id="string-span">
                 STRING
                 <span id="anime-span">
@@ -30,7 +32,7 @@
               </span>
             </strong>
           </a>
-          <button type="button" class="loginBtn">
+          <button type="button" class="loginBtn p-0">
             <svg 
               xmlns="http://www.w3.org/2000/svg" 
               width="50" 
@@ -50,63 +52,72 @@
           </button>
         </div>
       </div>
+      <!--Navbar-->
     </header>
-    <main role="main main-bg-black" style="overflow-x: hidden">
-      <section class="jumbotron-fluid">
-        <div class="container-fluid">
-          <img class="img-banner" src="./img/banner-index.jpg" alt="Teste Banner">
+    <!--Contéudo Site-->
+    <main role="main bg-black" style="overflow-x: hidden">
+      <!--Banner-->
+      <section class="banner">
+        <div class="p-0">
+          <img class="img-banner bordery-853bd4" src="./img/banner-index.jpg" alt="Banner">
         </div>
       </section>
+      <!--Banner-->
       <div>
         <div class="row">
+          <!--Descrição Anime-->
           <div class="col-9 m-0 p-0">
-            <div class="titulo-anime-template">
-              <p class="text-center text-light font-weight-bold display-5">TESTE</p>
+            <div class="borderbottom-853bd4">
+              <p class="text-center text-light font-weight-bold display-5 text-uppercase">NARUTO</p>
             </div>
             <div class="row p-0 m-0">
               <div class="m-5 div-image-template">
-                <img src="./img/animes-banner/fairytail.jpg" alt="NOME ANIME" class="image-anime-template p-2">
+                <img src="./img/animes-banner/fairytail.jpg" alt="NOME ANIME" class="image-anime-template border-853bd4 p-2">
               </div>
-              <div class="pl-3 pt-5 div-descricao-anime-template">
+              <div class="pl-3 pt-5 descricao-template">
                 <div class="mt-5 font-anime-template">
-                  <p class="text-2BFF67">Nome: <span class="descricao-anime-template">Shimoneta to Iu Gainen ga Sonzai Shinai Taikutsu na Sekai</span></p>
-                  <p class="text-2BFF67">Gênero: <span class="descricao-anime-template">Comédia</span></p>
-                  <p class="text-2BFF67">Estado: <span class="descricao-anime-template">Finalizado</span></p>
-                  <p class="text-2BFF67">Ano de Lançamento: <span class="descricao-anime-template">2013</span></p>
+                  <p class="text-2BFF67">Nome: <span class="descricao-anime-template text-light">Shimoneta to Iu Gainen ga Sonzai Shinai Taikutsu na Sekai</span></p>
+                  <p class="text-2BFF67">Gênero: <span class="descricao-anime-template text-light">Comédia</span></p>
+                  <p class="text-2BFF67">Estado: <span class="descricao-anime-template text-light">Finalizado</span></p>
+                  <p class="text-2BFF67">Ano de Lançamento: <span class="descricao-anime-template text-light">2013</span></p>
                 </div>
                 <div class="font-anime-template">
-                  <p class="text-2BFF67">Sinopse: <span class="descricao-anime-template fulljustify">Lucy é uma garota de 16 anos que quer se tornar uma maga completa, para isso, ela precisa entrar em uma guilda de magos. Um dia visitando a cidade de Harujion,ela conhece Natsu, um jovem rapaz que fica facilmente enjoado com qualquer tipo de transporte.Mas Natsu não é apenas uma criança fraca, ele é um membro de uma das maiores e infames guildas: FAIRY TAIL.</span></p>
+                  <p class="text-2BFF67 pr-4">Sinopse: <span class="descricao-anime-template text-light fulljustify">Lucy é uma garota de 16 anos que quer se tornar uma maga completa, para isso, ela precisa entrar em uma guilda de magos. Um dia visitando a cidade de Harujion,ela conhece Natsu, um jovem rapaz que fica facilmente enjoado com qualquer tipo de transporte.Mas Natsu não é apenas uma criança fraca, ele é um membro de uma das maiores e infames guildas: FAIRY TAIL.</span></p>
                 </div>
               </div>
             </div>
           </div>
-          <div class="m-0 p-0 lateral-anime-template col">
+          <!--Descrição Anime-->
+          <div class="m-0 p-0 borderleft-853bd4 col">
             <p class="text-center text-light font-weight-bold display-5">Animes</p>
-            <!--Cartão-->
-            <div class="click-card card-anime-template mt-5">
-              <div class="card custom-card">
-                <img class="card-img-top" src="./img/animes-banner/onepiece.jpg" alt="" style="height: 200px; width: 100%; display: block;">
-                <p class="titulo-card text-center mt-3 mb-0 text-uppercase">One Piece</p>
+            <!--Cartão tem que arrumar a resposividade-->
+            <div class="cursorh-pointer card-anime-template mt-5 mleft">
+              <div class="custom-card bg-black border-853bd4">
+                <img class="card-img" src="./img/animes-banner/onepiece.jpg" alt="" style="height: 200px; width: 100%; display: block;">
+                <p class="text-light display-6 text-center mt-3 mb-0 text-uppercase">One Piece</p>
               </div>
             </div>
-            <!--Cartão-->
-            <!--Cartão-->
-            <div class="click-card card-anime-template mt-5">
-              <div class="card custom-card">
-                <img class="card-img-top" src="./img/animes-banner/naruto.jpg" alt="" style="height: 200px; width: 100%; display: block;">
-                <p class="titulo-card text-center mt-3 mb-0 text-uppercase">Naruto</p>
+            <!--Cartão tem que arrumar a resposividade-->
+            <!--Cartão tem que arrumar a resposividade-->
+            <div class="cursorh-pointer card-anime-template mt-5 mleft">
+              <div class="custom-card bg-black border-853bd4">
+                <img class="card-img" src="./img/animes-banner/naruto.jpg" alt="" style="height: 200px; width: 100%; display: block;">
+                <p class="text-light display-6 text-center mt-3 mb-0 text-uppercase">Naruto</p>
               </div>
             </div>
-            <!--Cartão-->
+            <!--Cartão tem que arrumar a resposividade-->
           </div>
         </div>
       </div>
     </main>
-    <footer id="sticky-footer" class="flex-shrink-0 py-4 text-white footer-custom">
+    <!--Contéudo Site-->
+    <!--Footer-->
+    <footer id="sticky-footer" class="flex-shrink-0 py-4 text-white bordertop-853bd4">
       <div class="container text-center">
         <small>Copyright &copy; STRING Animes</small>
       </div>
     </footer>
+    <!--Footer-->
     <!-- jQuery  -->
     <script 
         src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
