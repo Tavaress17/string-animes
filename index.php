@@ -51,7 +51,7 @@
         </div>
       </div>
     </header>
-    <main role="main main-bg-black">
+    <main role="main main-bg-black" style="overflow-x: hidden">
       <section class="jumbotron-fluid">
         <div class="container-fluid">
           <img class="img-banner" src="./img/banner-index.jpg" alt="Teste Banner">
@@ -238,6 +238,11 @@
         </div>
       </div>
     </main>
+    <footer id="sticky-footer" class="flex-shrink-0 py-4 text-white footer-custom">
+      <div class="container text-center">
+        <small>Copyright &copy; STRING Animes</small>
+      </div>
+    </footer>
     <!-- jQuery  -->
     <script 
         src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
