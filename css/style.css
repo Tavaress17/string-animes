@@ -1,11 +1,6 @@
-*{
-    margin: 0;
-    padding: 0;
-}
+*{margin: 0;padding: 0;}
 
-body{
-    background-color: black;
-}
+body{background-color: black;}
 /*TELAS*/
 
 @media (max-width: 667px){
@@ -50,6 +45,9 @@ body{
 
 .fulljustify {text-align: justify;display: inline-block;text-align-last: left;}
 
+/*UNIVERSAL card-image*/
+.anime-image{width: 100%;height: 290px;object-fit: cover;}
+
 /*UNIVERSAL*/
 /*NAVBAR*/
 .navIcon{width: 50px;opacity: 0.6;transition: 0.3s;}
@@ -88,9 +86,6 @@ body{
 
 /*PAGINA INDEX*/
 /*CARTÃO*/
-.custom-card{padding: 7px 5px;width: 280px;transition: 0.4s;}
-
-.custom-card:hover{background-color: rgb(21, 10, 26);}
 
 .card-sinopse{
     justify-content: baseline;
@@ -119,10 +114,12 @@ body{
 
 .card-plus{padding-top: 50%;}
 
+.card-form{transition: 0.3s;}
+
 .card-form:hover{border: #853bd4 2px solid;}
 
 /* CARD STYLE */
-.card{padding: 15px 15px 40px;}
+.card{padding: 15px 15px 40px; transition: 0.4s;}
 
 .card:hover{background: rgb(21, 10, 26);}
 
@@ -133,12 +130,6 @@ body{
     grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
     grid-gap: 20px;
     justify-content: center;
-}
-
-.anime-image{
-    width: 100%;
-    height: 290px;
-    object-fit: cover;
 }
 
 /*CARTÃO forms*/
@@ -189,22 +180,34 @@ body{
 /*---------------------------------------------------------------------------------------*/
 
 /*PAGINA ANIMES_TEMPLATE*/
-.div-image-template{width: 30%;}
+.container-anime-template{
+    margin:auto;
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: 80% 20%;
+    justify-content: center;
+}
+
+.grid-descricao{
+    margin:auto;
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: 35% 65%;
+    justify-content: center;
+}
+
+.div-image-template{width: 100%;}
 
 .image-anime-template{width: 100%;}
 
-.font-anime-template{font-size: 30px;}
-
-.descricao-template{width: 60%;}
+.font-anime-template{font-size: 28px;}
 
 .descricao-anime-template{
-    font-size: 25px;
+    width: 100%;
     overflow-wrap: break-word;
     word-wrap: break-word;
     hyphens: auto;
 }
 
-.card-anime-template{margin: 0;width: 50%;}
 
-.mleft{margin-left: 5%;}
 
