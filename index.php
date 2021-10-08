@@ -1,3 +1,7 @@
+<?php
+require_once './php/Animes_Service.php';
+$a_service = new Animes_Service("string_animes", "localhost", "root", "");
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
@@ -68,109 +72,10 @@
           <p class="text-center text-light font-weight-bold display-4">Animes</p>
           <div class="row">
             <!--Cartão Anime-->
-            <div class="col-md-4 mb-5">
-              <div class="card bg-black border-853bd4 custom-card cursorh-pointer">
-                <img class="card-img" src="./img/animes-banner/naruto.jpg" alt="" style="height: 300px; width: 100%; display: block;">
-                <p class="font-weight-bold text-light display-6 text-center mt-3 mb-0 text-uppercase">naruto</p>
-                <div class="p-2">
-                  <div class="text-light card-sinopse mb-3">
-                    <p class="text-justify">
-                      Naruto é um jovem órfão habitante da Vila da Folha que sonha se tornar o quinto Hokage, 
-                      o maior guerreiro e governante da vila. 
-                      Agora Naruto vai contar com a ajuda dos colegas Sakura e Sasuke e do professor dos três, 
-                      Kakashi Hatake, para perseguir seu sonho e deter os ninjas que planejam fazer mal á sua cidade.
-                    </p>
-                    <a href="">Mais...</a>
-                  </div>
-                  <div class="float-right">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-outline-light btn-editar">Editar</button>
-                      <button type="button" class="btn btn-outline-light btn-excluir">Excluir</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!--Cartão Anime-->   
-            <!--Cartão Anime-->
-            <div class="col-md-4 mb-5">
-              <div class="card bg-black border-853bd4 custom-card cursorh-pointer">
-                <img class="card-img" src="./img/animes-banner/tokyoghoul.jpg" alt="" style="height: 300px; width: 100%; display: block;">
-                <p class="font-weight-bold text-light display-6 text-center mt-3 mb-0 text-uppercase">Tokyo Ghoul</p>
-                <div class="p-2">
-                  <div class="text-light card-sinopse mb-3">
-                    <p class="text-justify">
-                      Tóquio é assombrada por ghouls, humanos que se alimentam somente de carne humana. 
-                      As pessoas estão tomadas de medo dessas “criaturas” cuja identidade é um mistério. 
-                      Um estudante chamado Kaneki encontra Rize, uma menina que é uma ávida leitora como ele, 
-                      no café que frequenta. Como Kaneki tem uma queda por Rize, 
-                      eles se encontram com cada vez mais frequência, até uma noite fatídica. 
-                      Kaneki descobre da pior forma possível que Rize é um Ghoul, 
-                      porém acaba escapando por pura sorte, mas com sérios ferimentos. 
-                      Quando se recupera descobre que órgãos da Ghoul foram passados para o seu corpo, 
-                      lhe dando a mesma sede de sangue das criaturas.
-                    </p>
-                    <a href="">Mais...</a>
-                  </div>
-                  <div class="float-right">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-outline-light btn-editar">Editar</button>
-                      <button type="button" class="btn btn-outline-light btn-excluir">Excluir</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!--Cartão Anime-->  
-            <!--Cartão Anime-->
-            <div class="col-md-4 mb-5">
-              <div class="card bg-black border-853bd4 custom-card cursorh-pointer">  
-                <img class="card-img" src="./img/animes-banner/fairytail.jpg" alt="" style="height: 300px; width: 100%; display: block;">
-                <p class="font-weight-bold text-light display-6 text-center mt-3 mb-0 text-uppercase">Fairy Tail</p>
-                <div class="p-2">
-                  <div class="text-light card-sinopse mb-3">
-                    <p class="text-justify">
-                      Lucy é uma garota de 16 anos que quer se tornar uma maga completa, para isso, 
-                      ela precisa entrar em uma guilda de magos. Um dia visitando a cidade de Harujion, 
-                      ela conhece Natsu, um jovem rapaz que fica facilmente enjoado com qualquer tipo de transporte. 
-                      Mas Natsu não é apenas uma criança fraca, ele é um membro de uma das maiores e infames guildas: FAIRY TAIL.
-                    </p>
-                    <a href="">Mais...</a>
-                  </div>
-                  <div class="float-right">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-outline-light btn-editar">Editar</button>
-                      <button type="button" class="btn btn-outline-light btn-excluir">Excluir</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!--Cartão Anime-->  
-            <!--Cartão Anime-->
-            <div class="col-md-4 mb-5 cursorh-pointer">
-              <div class="card bg-black border-853bd4 custom-card cursorh-pointer">
-                <img class="card-img" src="./img/animes-banner/onepiece.jpg" alt="" style="height: 300px; width: 100%; display: block;">
-                <p class="font-weight-bold text-light display-6 text-center mt-3 mb-0 text-uppercase">One Piece</p>
-                <div class="p-2">
-                  <div class="text-light card-sinopse mb-3">
-                    <p class="text-justify">
-                      One Piece segue a história de um grupo de piratas liderado pelo capitão Luffy, um garoto 
-                      que possui um corpo elástico e almeja se tornar o Rei dos Piratas, mas 
-                      para isso deve encontrar o One Piece, um tesouro misterioso capaz de torná-lo imbatível, 
-                      segundo as lendas.
-                    </p>
-                    <a href="">Mais...</a>
-                  </div>
-                  <div class="float-right">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-outline-light btn-editar">Editar</button>
-                      <button type="button" class="btn btn-outline-light btn-excluir">Excluir</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <?php
+                $a_service->carregarCards();
+            ?>
+            
             <!--Cartão Anime--> 
             <!--Cartão Adicionar--> 
             <div class="col-md-4 mb-5" id="adicionarAnime">
@@ -196,14 +101,14 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div>       
             <!--Cartão--> 
             <!--Cartão--> 
             <div class="col-md-4 mb-5" id="formAnime">
               <div class="card bg-black custom-card border-853bd4 plus-card cursorh-pointer">
                 <div class="p-0">
                   <div class="text-center text-light">
-                    <form method="post" action="./php/pdo.php">
+                      <form method="post" action="./php/Animes_Controller.php">
                       <label for="nomeAnime">Nome do Anime:</label>
                       <input class="input-adicionar-anime text-light bg-black border-2BFF67" type="text" name="nomeAnime" id="nomeAnime" placeholder="Nome do Anime">
                       <label for="sinopse">Sinopse:</label>
