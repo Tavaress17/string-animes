@@ -6,6 +6,12 @@
 body{
     background-color: black;
 }
+/*TELAS*/
+
+@media (max-width: 667px){
+    #string-span{display:none;}
+    #animes-span{display:none;}
+}
 
 /*BACKGROUND COLORS*/
 
@@ -76,7 +82,7 @@ body{
 #string-span:hover{opacity: 1;}
 
 /*BANNER*/
-.img-banner{width: 100%;height: 200px;}
+.img-banner{width: 100%;height: 10%;}
 
 /*---------------------------------------------------------------------------------------*/
 
@@ -111,15 +117,29 @@ body{
 /*CARTÃO adicionar*/
 #formAnime{display: none;}
 
-.plus{padding: 75% 0;}
+.card-plus{padding-top: 50%;}
 
-.plus-card{height: 533px;transition: 0.5s;}
+.card-form:hover{border: #853bd4 2px solid;}
 
-.plus-card:hover{background-color: #020c05;border: #2BFF67 2px solid;}
+/* CARD STYLE */
+.card{padding: 15px 15px 40px;}
 
-.plus-card svg{transition: 0.5s;}
+.card:hover{background: rgb(21, 10, 26);}
 
-.plus-card:hover svg{stroke: #2BFF67;}
+.container-card{
+    margin:auto;
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+    grid-gap: 20px;
+    justify-content: center;
+}
+
+.anime-image{
+    width: 100%;
+    height: 290px;
+    object-fit: cover;
+}
 
 /*CARTÃO forms*/
 .input-adicionar-anime{
