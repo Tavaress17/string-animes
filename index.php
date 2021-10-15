@@ -1,3 +1,7 @@
+<?php
+require_once './php/Animes_Service.php';
+$a_service = new Animes_Service("string_animes", "localhost", "root", "");
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
@@ -59,15 +63,18 @@
       <!--Banner-->
       <section class="banner">
         <div class="p-0">
-          <img class="img-banner bordery-853bd4" src="./img/banner-index.jpg" alt="Banner">
+          <img class="img-banner bordery-purple" src="./img/banner-index.jpg" alt="Banner">
         </div>
       </section>
     </main>
     <!--Contéudo Site-->
     <p class="font-weight-bold text-center mt-3 text-light display-4">ANIMES</p>
     <div class="container-card my-4 px-4">
+      <?php
+        $a_service->carregarCards();
+      ?>
       <!--Inicio Cartão-->
-      <div class="card bg-black border-853bd4 pb-4 cursorh-pointer">
+      <div class="card bg-black border-purple pb-4 cursorh-pointer">
         <img src="img/animes-banner/tokyoghoul.jpg" class="anime-image" alt="">
         <div class="conteudo">
           <h2 class="text-center text-light my-2">Tokyo Ghoul</h2>
@@ -93,115 +100,7 @@
         </div>
       </div>
       <!--Fim Cartão-->
-      <!--Inicio Cartão-->
-      <div class="card bg-black border-853bd4 pb-4 cursorh-pointer">
-        <img src="img/animes-banner/tokyoghoul.jpg" class="anime-image" alt="">
-        <div class="conteudo">
-          <h2 class="text-center text-light my-2">Tokyo Ghoul</h2>
-          <div class="card-sinopse">
-            <p class="text-justify text-light">
-              Tóquio é assombrada por ghouls, humanos que se alimentam somente de carne humana. 
-              As pessoas estão tomadas de medo dessas “criaturas” cuja identidade é um mistério. 
-              Um estudante chamado Kaneki encontra Rize, uma menina que é uma ávida leitora como ele, 
-              no café que frequenta. Como Kaneki tem uma queda por Rize, eles se encontram com cada 
-              vez mais frequência, até uma noite fatídica. Kaneki descobre da pior forma possível 
-              que Rize é um Ghoul, porém acaba escapando por pura sorte, mas com sérios ferimentos. 
-              Quando se recupera descobre que órgãos da Ghoul foram passados para o seu corpo, 
-              lhe dando a mesma sede de sangue das criaturas.
-            </p>
-            <a href=""> Mais... </a>
-          </div>
-          <div class="float-right mt-3">
-            <div class="btn-group">
-              <button type="button" class="btn btn-outline-light btn-editar">Editar</button>
-              <button type="button" class="btn btn-outline-light btn-excluir">Excluir</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!--Fim Cartão-->
-      <!--Inicio Cartão-->
-      <div class="card bg-black border-853bd4 pb-4 cursorh-pointer">
-        <img src="img/animes-banner/tokyoghoul.jpg" class="anime-image" alt="">
-        <div class="conteudo">
-          <h2 class="text-center text-light my-2">Tokyo Ghoul</h2>
-          <div class="card-sinopse">
-            <p class="text-justify text-light">
-              Tóquio é assombrada por ghouls, humanos que se alimentam somente de carne humana. 
-              As pessoas estão tomadas de medo dessas “criaturas” cuja identidade é um mistério. 
-              Um estudante chamado Kaneki encontra Rize, uma menina que é uma ávida leitora como ele, 
-              no café que frequenta. Como Kaneki tem uma queda por Rize, eles se encontram com cada 
-              vez mais frequência, até uma noite fatídica. Kaneki descobre da pior forma possível 
-              que Rize é um Ghoul, porém acaba escapando por pura sorte, mas com sérios ferimentos. 
-              Quando se recupera descobre que órgãos da Ghoul foram passados para o seu corpo, 
-              lhe dando a mesma sede de sangue das criaturas.
-            </p>
-            <a href=""> Mais... </a>
-          </div>
-          <div class="float-right mt-3">
-            <div class="btn-group">
-              <button type="button" class="btn btn-outline-light btn-editar">Editar</button>
-              <button type="button" class="btn btn-outline-light btn-excluir">Excluir</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!--Fim Cartão-->
-      <!--Inicio Cartão-->
-      <div class="card bg-black border-853bd4 pb-4 cursorh-pointer">
-        <img src="img/animes-banner/tokyoghoul.jpg" class="anime-image" alt="">
-        <div class="conteudo">
-          <h2 class="text-center text-light my-2">Tokyo Ghoul</h2>
-          <div class="card-sinopse">
-            <p class="text-justify text-light">
-              Tóquio é assombrada por ghouls, humanos que se alimentam somente de carne humana. 
-              As pessoas estão tomadas de medo dessas “criaturas” cuja identidade é um mistério. 
-              Um estudante chamado Kaneki encontra Rize, uma menina que é uma ávida leitora como ele, 
-              no café que frequenta. Como Kaneki tem uma queda por Rize, eles se encontram com cada 
-              vez mais frequência, até uma noite fatídica. Kaneki descobre da pior forma possível 
-              que Rize é um Ghoul, porém acaba escapando por pura sorte, mas com sérios ferimentos. 
-              Quando se recupera descobre que órgãos da Ghoul foram passados para o seu corpo, 
-              lhe dando a mesma sede de sangue das criaturas.
-            </p>
-            <a href=""> Mais... </a>
-          </div>
-          <div class="float-right mt-3">
-            <div class="btn-group">
-              <button type="button" class="btn btn-outline-light btn-editar">Editar</button>
-              <button type="button" class="btn btn-outline-light btn-excluir">Excluir</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!--Fim Cartão-->
-      <!--Inicio Cartão-->
-      <div class="card bg-black border-853bd4 pb-4 cursorh-pointer">
-        <img src="img/animes-banner/tokyoghoul.jpg" class="anime-image" alt="">
-        <div class="conteudo">
-          <h2 class="text-center text-light my-2">Tokyo Ghoul</h2>
-          <div class="card-sinopse">
-            <p class="text-justify text-light">
-              Tóquio é assombrada por ghouls, humanos que se alimentam somente de carne humana. 
-              As pessoas estão tomadas de medo dessas “criaturas” cuja identidade é um mistério. 
-              Um estudante chamado Kaneki encontra Rize, uma menina que é uma ávida leitora como ele, 
-              no café que frequenta. Como Kaneki tem uma queda por Rize, eles se encontram com cada 
-              vez mais frequência, até uma noite fatídica. Kaneki descobre da pior forma possível 
-              que Rize é um Ghoul, porém acaba escapando por pura sorte, mas com sérios ferimentos. 
-              Quando se recupera descobre que órgãos da Ghoul foram passados para o seu corpo, 
-              lhe dando a mesma sede de sangue das criaturas.
-            </p>
-            <a href=""> Mais... </a>
-          </div>
-          <div class="float-right mt-3">
-            <div class="btn-group">
-              <button type="button" class="btn btn-outline-light btn-editar">Editar</button>
-              <button type="button" class="btn btn-outline-light btn-excluir">Excluir</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!--Fim Cartão-->
-      <div class="card bg-black border-853bd4 pb-4 cursorh-pointer" id="adicionarAnime" onclick="document.getElementById('adicionarAnime').style.display='none';document.getElementById('formAnime').style.display='block'">
+      <div class="card bg-black border-purple pb-4 cursorh-pointer" id="adicionarAnime" onclick="document.getElementById('adicionarAnime').style.display='none';document.getElementById('formAnime').style.display='block'">
         <div class="card-plus text-center">
           <svg 
             xmlns="http://www.w3.org/2000/svg" 
@@ -219,17 +118,17 @@
           </svg>
         </div>
       </div>
-      <div id="formAnime" class="card card-form bg-black border-2BFF67 pb-4 cursorh-pointer">
+      <div id="formAnime" class="card card-form bg-black border-green pb-4 cursorh-pointer">
         <div class="p-0">
           <div class="text-center text-light">         
             <form method="post" action="./php/pdo.php">
               <label for="nomeAnime">Nome do Anime:</label>
-              <input class="input-adicionar-anime text-light bg-black border-2BFF67" type="text" name="nomeAnime" id="nomeAnime" placeholder="Nome do Anime">
+              <input class="input-adicionar-anime text-light bg-black border-green" type="text" name="nomeAnime" id="nomeAnime" placeholder="Nome do Anime">
               <label for="sinopse">Sinopse:</label>
-              <input class="input-adicionar-anime text-light bg-black border-2BFF67" type="text" name="sinopse" id="sinopse" placeholder="Sinopse">
+              <input class="input-adicionar-anime text-light bg-black border-green" type="text" name="sinopse" id="sinopse" placeholder="Sinopse">
               <label for="genero">Gênero:</label>                  
               <div class="d-flex justify-content-center">          
-                <select class="select-adicionar-anime text-light bg-black border-2BFF67" name="genero" id="genero">
+                <select class="select-adicionar-anime text-light bg-black border-green" name="genero" id="genero">
                   <option class="option-adicionar-anime" value="Comedia" selected="selected">Comédia</option>
                   <option class="option-adicionar-anime" value="Esportes">Esportes</option>
                   <option class="option-adicionar-anime" value="Fantasia">Fantasia</option>
@@ -243,24 +142,25 @@
                 </select>
               </div> 
               <label for="dataLancamento">Data de Lançamento:</label>
-              <input class="input-adicionar-anime text-light bg-black border-2BFF67" type="text" name="dataLancamento" id="dataLancamento" placeholder="Ano de Lançamento">
+              <input class="input-adicionar-anime text-light bg-black border-green" type="text" name="dataLancamento" id="dataLancamento" placeholder="Ano de Lançamento">
               <label for="statusLancamento">Status:</label>
               <div class="d-flex justify-content-center">
-                <select class="select-adicionar-anime text-light bg-black border-2BFF67" name="statusLancamento" id="statusLancamento" placeholder="Status de Lançamento">
+                <select class="select-adicionar-anime text-light bg-black border-green" name="statusLancamento" id="statusLancamento" placeholder="Status de Lançamento">
                   <option class="option-adicionar-anime" value="Concluido" selected="selected">Concluido</option>
                   <option class="option-adicionar-anime" value="Em lançamento">Em lançamento</option>
                 </select>
+>>>>>>> develop
               </div>
               <label for="animeImagem">Nome para o path da imagem:</label>      
-              <input class="input-adicionar-anime text-light bg-black border-2BFF67" type="text" name="animeImagem" id="animeImagem" placeholder="Nome minúsculo. Ex: naruto">
-              <input type="submit" value="Adicionar Anime" class="submit-adicionar-anime text-black bg-2BFF67 border-2BFF67">
+              <input class="input-adicionar-anime text-light bg-black border-green" type="text" name="animeImagem" id="animeImagem" placeholder="Nome minúsculo. Ex: naruto">
+              <input type="submit" value="Adicionar Anime" class="submit-adicionar-anime text-black bg-green border-green">
             </form>
           </div>
         </div>
       </div>
     </div>
     <!--Footer--> 
-    <footer id="sticky-footer" class="flex-shrink-0 py-4 text-white bordertop-853bd4">
+    <footer id="sticky-footer" class="flex-shrink-0 py-4 text-white bordertop-purple">
       <div class="container text-center">
         <small>Copyright &copy; STRING Animes</small>
       </div>
