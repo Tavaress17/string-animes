@@ -56,16 +56,15 @@
     </header>
     <!--Contéudo Site-->
     <main role="main bg-black" style="overflow-x: hidden">
-      <!--Banner-->
+      <!--Banner inicio-->
       <section class="banner">
         <div class="p-0">
           <img class="img-banner bordery-853bd4" src="./img/banner-index.jpg" alt="Banner">
         </div>
       </section>
-      <!--Banner-->
+      <!--Banner fim-->
       
-      <div class="container-anime-template">
-        <!--Descrição Anime-->
+      <section class="content">
         <div class="m-0 p-0">
           <div class="borderbottom-853bd4">
             <p class="text-center text-light font-weight-bold display-5 text-uppercase">NARUTO</p>
@@ -75,44 +74,24 @@
               <img src="./img/animes-banner/tokyoghoul.jpg" alt="NOME ANIME" class="image-anime-template border-853bd4 p-2">
             </div>
             <div class="my-4 descricao-template font-anime-template pr-5">
-                <p class="text-2BFF67">Nome: <span class="text-light">Shimoneta to Iu Gainen ga Sonzai Shinai Taikutsu na Sekai</span></p>
-                <p class="text-2BFF67">Gênero: <span class="text-light">Comédia</span></p>
-                <p class="text-2BFF67">Estado: <span class="text-light">Finalizado</span></p>
-                <p class="text-2BFF67">Ano de Lançamento: <span class="text-light">2013</span></p>
-                <p class="text-2BFF67">
-                  Sinopse: 
-                  <span class="text-light fulljustify">
-                    Lucy é uma garota de 16 anos que quer se tornar uma maga completa, para isso, 
-                    ela precisa entrar em uma guilda de magos. Um dia visitando a cidade de Harujion,
-                    ela conhece Natsu, um jovem rapaz que fica facilmente enjoado com qualquer tipo de transporte.
-                    Mas Natsu não é apenas uma criança fraca, ele é um membro de uma das maiores 
-                    e infames guildas: FAIRY TAIL.
-                  </span>
-                </p>
+              <p class="text-2BFF67">Nome: <span class="text-light">Shimoneta to Iu Gainen ga Sonzai Shinai Taikutsu na Sekai</span></p>
+              <p class="text-2BFF67">Gênero: <span class="text-light">Comédia</span></p>
+              <p class="text-2BFF67">Estado: <span class="text-light">Finalizado</span></p>
+              <p class="text-2BFF67">Ano de Lançamento: <span class="text-light">2013</span></p>
+              <p class="text-2BFF67">
+                Sinopse: 
+                <span class="text-light fulljustify">
+                  Lucy é uma garota de 16 anos que quer se tornar uma maga completa, para isso, 
+                  ela precisa entrar em uma guilda de magos. Um dia visitando a cidade de Harujion,
+                  ela conhece Natsu, um jovem rapaz que fica facilmente enjoado com qualquer tipo de transporte.
+                  Mas Natsu não é apenas uma criança fraca, ele é um membro de uma das maiores 
+                  e infames guildas: FAIRY TAIL.
+                </span>
+              </p>
             </div>
           </div>
         </div>
-        <!--Descrição Anime-->
-        <div class="m-0 p-0 borderleft-853bd4">
-          <p class="text-center text-light font-weight-bold display-5">Animes</p>
-          <!--Inicio Cartão-->
-          <div class="card bg-black border-853bd4 pb-2 cursorh-pointer m-3">
-            <img src="img/animes-banner/tokyoghoul.jpg" class="anime-image" alt="">
-            <div class="conteudo">
-              <h2 class="text-center text-light my-2">Tokyo Ghoul</h2>
-            </div>
-          </div>
-          <!--Fim Cartão-->
-          <!--Inicio Cartão-->
-          <div class="card bg-black border-853bd4 pb-2 cursorh-pointer m-3">
-            <img src="img/animes-banner/tokyoghoul.jpg" class="anime-image" alt="">
-            <div class="conteudo">
-              <h2 class="text-center text-light my-2">Tokyo Ghoul</h2>
-            </div>
-          </div>
-          <!--Fim Cartão-->
-        </div>
-      </div>
+      </section>
       
     </main>
     <!--Contéudo Site-->
