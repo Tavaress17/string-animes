@@ -1,3 +1,7 @@
+<?php
+require_once './php/Animes_Service.php';
+$a_service = new Animes_Service("string_animes", "localhost", "root", "");
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
@@ -66,114 +70,9 @@
     <!--Contéudo Site-->
     <p class="font-weight-bold text-center mt-3 text-light display-4">ANIMES</p>
     <div class="container-card my-4 px-4">
-      <!--Inicio Cartão-->
-      <div class="card bg-black border-purple pb-4 cursorh-pointer">
-        <img src="img/animes-banner/tokyoghoul.jpg" class="anime-image" alt="">
-        <div class="conteudo">
-          <h2 class="text-center text-light my-2">Tokyo Ghoul</h2>
-          <div class="card-sinopse">
-            <p class="text-justify text-light">
-              Tóquio é assombrada por ghouls, humanos que se alimentam somente de carne humana. 
-              As pessoas estão tomadas de medo dessas “criaturas” cuja identidade é um mistério. 
-              Um estudante chamado Kaneki encontra Rize, uma menina que é uma ávida leitora como ele, 
-              no café que frequenta. Como Kaneki tem uma queda por Rize, eles se encontram com cada 
-              vez mais frequência, até uma noite fatídica. Kaneki descobre da pior forma possível 
-              que Rize é um Ghoul, porém acaba escapando por pura sorte, mas com sérios ferimentos. 
-              Quando se recupera descobre que órgãos da Ghoul foram passados para o seu corpo, 
-              lhe dando a mesma sede de sangue das criaturas.
-            </p>
-            <a href=""> Mais... </a>
-          </div>
-          <div class="float-right mt-3">
-            <div class="btn-group">
-              <button type="button" class="btn btn-outline-light btn-editar">Editar</button>
-              <button type="button" class="btn btn-outline-light btn-excluir">Excluir</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!--Fim Cartão-->
-      <!--Inicio Cartão-->
-      <div class="card bg-black border-purple pb-4 cursorh-pointer">
-        <img src="img/animes-banner/tokyoghoul.jpg" class="anime-image" alt="">
-        <div class="conteudo">
-          <h2 class="text-center text-light my-2">Tokyo Ghoul</h2>
-          <div class="card-sinopse">
-            <p class="text-justify text-light">
-              Tóquio é assombrada por ghouls, humanos que se alimentam somente de carne humana. 
-              As pessoas estão tomadas de medo dessas “criaturas” cuja identidade é um mistério. 
-              Um estudante chamado Kaneki encontra Rize, uma menina que é uma ávida leitora como ele, 
-              no café que frequenta. Como Kaneki tem uma queda por Rize, eles se encontram com cada 
-              vez mais frequência, até uma noite fatídica. Kaneki descobre da pior forma possível 
-              que Rize é um Ghoul, porém acaba escapando por pura sorte, mas com sérios ferimentos. 
-              Quando se recupera descobre que órgãos da Ghoul foram passados para o seu corpo, 
-              lhe dando a mesma sede de sangue das criaturas.
-            </p>
-            <a href=""> Mais... </a>
-          </div>
-          <div class="float-right mt-3">
-            <div class="btn-group">
-              <button type="button" class="btn btn-outline-light btn-editar">Editar</button>
-              <button type="button" class="btn btn-outline-light btn-excluir">Excluir</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!--Fim Cartão-->
-      <!--Inicio Cartão-->
-      <div class="card bg-black border-purple pb-4 cursorh-pointer">
-        <img src="img/animes-banner/tokyoghoul.jpg" class="anime-image" alt="">
-        <div class="conteudo">
-          <h2 class="text-center text-light my-2">Tokyo Ghoul</h2>
-          <div class="card-sinopse">
-            <p class="text-justify text-light">
-              Tóquio é assombrada por ghouls, humanos que se alimentam somente de carne humana. 
-              As pessoas estão tomadas de medo dessas “criaturas” cuja identidade é um mistério. 
-              Um estudante chamado Kaneki encontra Rize, uma menina que é uma ávida leitora como ele, 
-              no café que frequenta. Como Kaneki tem uma queda por Rize, eles se encontram com cada 
-              vez mais frequência, até uma noite fatídica. Kaneki descobre da pior forma possível 
-              que Rize é um Ghoul, porém acaba escapando por pura sorte, mas com sérios ferimentos. 
-              Quando se recupera descobre que órgãos da Ghoul foram passados para o seu corpo, 
-              lhe dando a mesma sede de sangue das criaturas.
-            </p>
-            <a href=""> Mais... </a>
-          </div>
-          <div class="float-right mt-3">
-            <div class="btn-group">
-              <button type="button" class="btn btn-outline-light btn-editar">Editar</button>
-              <button type="button" class="btn btn-outline-light btn-excluir">Excluir</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!--Fim Cartão-->
-      <!--Inicio Cartão-->
-      <div class="card bg-black border-purple pb-4 cursorh-pointer">
-        <img src="img/animes-banner/tokyoghoul.jpg" class="anime-image" alt="">
-        <div class="conteudo">
-          <h2 class="text-center text-light my-2">Tokyo Ghoul</h2>
-          <div class="card-sinopse">
-            <p class="text-justify text-light">
-              Tóquio é assombrada por ghouls, humanos que se alimentam somente de carne humana. 
-              As pessoas estão tomadas de medo dessas “criaturas” cuja identidade é um mistério. 
-              Um estudante chamado Kaneki encontra Rize, uma menina que é uma ávida leitora como ele, 
-              no café que frequenta. Como Kaneki tem uma queda por Rize, eles se encontram com cada 
-              vez mais frequência, até uma noite fatídica. Kaneki descobre da pior forma possível 
-              que Rize é um Ghoul, porém acaba escapando por pura sorte, mas com sérios ferimentos. 
-              Quando se recupera descobre que órgãos da Ghoul foram passados para o seu corpo, 
-              lhe dando a mesma sede de sangue das criaturas.
-            </p>
-            <a href=""> Mais... </a>
-          </div>
-          <div class="float-right mt-3">
-            <div class="btn-group">
-              <button type="button" class="btn btn-outline-light btn-editar">Editar</button>
-              <button type="button" class="btn btn-outline-light btn-excluir">Excluir</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!--Fim Cartão-->
+      <?php
+        $a_service->carregarCards();
+      ?>
       <!--Inicio Cartão-->
       <div class="card bg-black border-purple pb-4 cursorh-pointer">
         <img src="img/animes-banner/tokyoghoul.jpg" class="anime-image" alt="">
@@ -250,6 +149,7 @@
                   <option class="option-adicionar-anime" value="Concluido" selected="selected">Concluido</option>
                   <option class="option-adicionar-anime" value="Em lançamento">Em lançamento</option>
                 </select>
+>>>>>>> develop
               </div>
               <label for="animeImagem">Nome para o path da imagem:</label>      
               <input class="input-adicionar-anime text-light bg-black border-green" type="text" name="animeImagem" id="animeImagem" placeholder="Nome minúsculo. Ex: naruto">
