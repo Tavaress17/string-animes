@@ -149,7 +149,6 @@ $a_service = new Animes_Service("string_animes", "localhost", "root", "");
                   <option class="option-adicionar-anime" value="Concluido" selected="selected">Concluido</option>
                   <option class="option-adicionar-anime" value="Em lançamento">Em lançamento</option>
                 </select>
->>>>>>> develop
               </div>
               <label for="animeImagem">Nome para o path da imagem:</label>      
               <input class="input-adicionar-anime text-light bg-black border-green" type="text" name="animeImagem" id="animeImagem" placeholder="Nome minúsculo. Ex: naruto">
