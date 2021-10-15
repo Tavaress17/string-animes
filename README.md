@@ -23,7 +23,7 @@ USE string_animes;/*Usar o banco de dados criado*/
 CREATE TABLE IF NOT EXISTS animes(
 idAnime int primary key auto_increment,
 nomeAnime varchar(255) not null,
-sinopse varchar(400) not null,
+sinopse varchar(999) not null,
 genero varchar(60) not null,
 dataLancamento int not null,
 statusLancamento varchar (60) not null,
