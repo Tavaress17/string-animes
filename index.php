@@ -59,7 +59,7 @@
       <!--Banner-->
       <section class="banner">
         <div class="p-0">
-          <img class="img-banner bordery-853bd4" src="./img/banner-index.jpg" alt="Banner">
+          <img class="img-banner bordery-purple" src="./img/banner-index.jpg" alt="Banner">
         </div>
       </section>
     </main>
@@ -67,7 +67,7 @@
     <p class="font-weight-bold text-center mt-3 text-light display-4">ANIMES</p>
     <div class="container-card my-4 px-4">
       <!--Inicio Cartão-->
-      <div class="card bg-black border-853bd4 pb-4 cursorh-pointer">
+      <div class="card bg-black border-purple pb-4 cursorh-pointer">
         <img src="img/animes-banner/tokyoghoul.jpg" class="anime-image" alt="">
         <div class="conteudo">
           <h2 class="text-center text-light my-2">Tokyo Ghoul</h2>
@@ -94,7 +94,7 @@
       </div>
       <!--Fim Cartão-->
       <!--Inicio Cartão-->
-      <div class="card bg-black border-853bd4 pb-4 cursorh-pointer">
+      <div class="card bg-black border-purple pb-4 cursorh-pointer">
         <img src="img/animes-banner/tokyoghoul.jpg" class="anime-image" alt="">
         <div class="conteudo">
           <h2 class="text-center text-light my-2">Tokyo Ghoul</h2>
@@ -121,7 +121,7 @@
       </div>
       <!--Fim Cartão-->
       <!--Inicio Cartão-->
-      <div class="card bg-black border-853bd4 pb-4 cursorh-pointer">
+      <div class="card bg-black border-purple pb-4 cursorh-pointer">
         <img src="img/animes-banner/tokyoghoul.jpg" class="anime-image" alt="">
         <div class="conteudo">
           <h2 class="text-center text-light my-2">Tokyo Ghoul</h2>
@@ -148,7 +148,7 @@
       </div>
       <!--Fim Cartão-->
       <!--Inicio Cartão-->
-      <div class="card bg-black border-853bd4 pb-4 cursorh-pointer">
+      <div class="card bg-black border-purple pb-4 cursorh-pointer">
         <img src="img/animes-banner/tokyoghoul.jpg" class="anime-image" alt="">
         <div class="conteudo">
           <h2 class="text-center text-light my-2">Tokyo Ghoul</h2>
@@ -175,7 +175,7 @@
       </div>
       <!--Fim Cartão-->
       <!--Inicio Cartão-->
-      <div class="card bg-black border-853bd4 pb-4 cursorh-pointer">
+      <div class="card bg-black border-purple pb-4 cursorh-pointer">
         <img src="img/animes-banner/tokyoghoul.jpg" class="anime-image" alt="">
         <div class="conteudo">
           <h2 class="text-center text-light my-2">Tokyo Ghoul</h2>
@@ -201,7 +201,7 @@
         </div>
       </div>
       <!--Fim Cartão-->
-      <div class="card bg-black border-853bd4 pb-4 cursorh-pointer" id="adicionarAnime" onclick="document.getElementById('adicionarAnime').style.display='none';document.getElementById('formAnime').style.display='block'">
+      <div class="card bg-black border-purple pb-4 cursorh-pointer" id="adicionarAnime" onclick="document.getElementById('adicionarAnime').style.display='none';document.getElementById('formAnime').style.display='block'">
         <div class="card-plus text-center">
           <svg 
             xmlns="http://www.w3.org/2000/svg" 
@@ -219,17 +219,17 @@
           </svg>
         </div>
       </div>
-      <div id="formAnime" class="card card-form bg-black border-2BFF67 pb-4 cursorh-pointer">
+      <div id="formAnime" class="card card-form bg-black border-green pb-4 cursorh-pointer">
         <div class="p-0">
           <div class="text-center text-light">         
             <form method="post" action="./php/pdo.php">
               <label for="nomeAnime">Nome do Anime:</label>
-              <input class="input-adicionar-anime text-light bg-black border-2BFF67" type="text" name="nomeAnime" id="nomeAnime" placeholder="Nome do Anime">
+              <input class="input-adicionar-anime text-light bg-black border-green" type="text" name="nomeAnime" id="nomeAnime" placeholder="Nome do Anime">
               <label for="sinopse">Sinopse:</label>
-              <input class="input-adicionar-anime text-light bg-black border-2BFF67" type="text" name="sinopse" id="sinopse" placeholder="Sinopse">
+              <input class="input-adicionar-anime text-light bg-black border-green" type="text" name="sinopse" id="sinopse" placeholder="Sinopse">
               <label for="genero">Gênero:</label>                  
               <div class="d-flex justify-content-center">          
-                <select class="select-adicionar-anime text-light bg-black border-2BFF67" name="genero" id="genero">
+                <select class="select-adicionar-anime text-light bg-black border-green" name="genero" id="genero">
                   <option class="option-adicionar-anime" value="Comedia" selected="selected">Comédia</option>
                   <option class="option-adicionar-anime" value="Esportes">Esportes</option>
                   <option class="option-adicionar-anime" value="Fantasia">Fantasia</option>
@@ -243,24 +243,24 @@
                 </select>
               </div> 
               <label for="dataLancamento">Data de Lançamento:</label>
-              <input class="input-adicionar-anime text-light bg-black border-2BFF67" type="text" name="dataLancamento" id="dataLancamento" placeholder="Ano de Lançamento">
+              <input class="input-adicionar-anime text-light bg-black border-green" type="text" name="dataLancamento" id="dataLancamento" placeholder="Ano de Lançamento">
               <label for="statusLancamento">Status:</label>
               <div class="d-flex justify-content-center">
-                <select class="select-adicionar-anime text-light bg-black border-2BFF67" name="statusLancamento" id="statusLancamento" placeholder="Status de Lançamento">
+                <select class="select-adicionar-anime text-light bg-black border-green" name="statusLancamento" id="statusLancamento" placeholder="Status de Lançamento">
                   <option class="option-adicionar-anime" value="Concluido" selected="selected">Concluido</option>
                   <option class="option-adicionar-anime" value="Em lançamento">Em lançamento</option>
                 </select>
               </div>
               <label for="animeImagem">Nome para o path da imagem:</label>      
-              <input class="input-adicionar-anime text-light bg-black border-2BFF67" type="text" name="animeImagem" id="animeImagem" placeholder="Nome minúsculo. Ex: naruto">
-              <input type="submit" value="Adicionar Anime" class="submit-adicionar-anime text-black bg-2BFF67 border-2BFF67">
+              <input class="input-adicionar-anime text-light bg-black border-green" type="text" name="animeImagem" id="animeImagem" placeholder="Nome minúsculo. Ex: naruto">
+              <input type="submit" value="Adicionar Anime" class="submit-adicionar-anime text-black bg-green border-green">
             </form>
           </div>
         </div>
       </div>
     </div>
     <!--Footer--> 
-    <footer id="sticky-footer" class="flex-shrink-0 py-4 text-white bordertop-853bd4">
+    <footer id="sticky-footer" class="flex-shrink-0 py-4 text-white bordertop-purple">
       <div class="container text-center">
         <small>Copyright &copy; STRING Animes</small>
       </div>

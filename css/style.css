@@ -12,9 +12,9 @@ body{background-color: black;}
 
 .bg-black{background: black;}
 
-.bg-2BFF67{background: #2BFF67;}
+.bg-green{background: #2BFF67;}
 
-.bg-853bd4{background: #853bd4;}
+.bg-purple{background: #853bd4;}
 
 /*STYLES*/
 .text-decoration-none{text-decoration: none !important;}
@@ -23,17 +23,17 @@ body{background-color: black;}
 
 .display-6{font-size: 22px;}
 
-.border-2BFF67{border: #2BFF67 solid 2px;}
+.border-green{border: #2BFF67 solid 2px;}
 
-.border-853bd4{border: #853bd4 2px solid;}
+.border-purple{border: #853bd4 2px solid;}
 
-.bordertop-853bd4{border-top: 2px solid #853bd4;}
+.bordertop-purple{border-top: 2px solid #853bd4;}
 
-.borderbottom-853bd4{border-bottom: #853bd4 2px solid;}
+.borderbottom-purple{border-bottom: #853bd4 2px solid;}
 
-.borderleft-853bd4{border-left: #853bd4 2px solid;}
+.borderleft-purple{border-left: #853bd4 2px solid;}
 
-.bordery-853bd4{border-top: 2px solid #853bd4;border-bottom: 2px solid #853bd4;}
+.bordery-purple{border-top: 2px solid #853bd4; border-bottom: 2px solid #853bd4;}
 
 .cursorh-pointer:hover{cursor: pointer;}
 
@@ -41,7 +41,9 @@ body{background-color: black;}
 
 .text-black{color: black;}
 
-.text-2BFF67{color: #2BFF67;}
+.text-green{color: #2BFF67;}
+
+.text-purple{color: #853bd4;}
 
 .fulljustify {text-align: justify;display: inline-block;text-align-last: left;}
 
@@ -67,6 +69,54 @@ body{background-color: black;}
 
 .loginIcon{transition: stroke 0.4s ease-in-out;}
 
+.loginMenu{
+    width: 350px;
+}
+
+.loginMenu a{
+    transition: 0.3s;
+}
+
+.loginMenu a:hover{
+    color: #853bd4;
+    text-decoration: none;
+}
+
+.inputLogin{
+    outline: none;
+    appearance: none;
+}
+
+.inputLogin:focus{
+    outline: none;
+    appearance: none;
+    box-shadow: none;
+    background-color: black;
+    border: #2BFF67 solid 2px;
+    color: white;
+}
+
+.checkboxCustom{
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background-color: black; 
+    transition: 0.2s;
+    border: #853bd4 2px solid;
+    cursor: pointer;
+}
+
+.checkboxCustom:checked{
+    background-color: #2BFF67;
+}
+
+.btn-entrar{
+    transition: 0.3s;
+}
+
+.btn-entrar:hover{
+    background-color: #853bd4;
+}
 /*NAVBAR span name: String Animes*/
 #string-span{
     color: #2BFF67;
