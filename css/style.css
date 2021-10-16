@@ -177,7 +177,7 @@ body{background-color: black;}
 /* CARD STYLE */
 .card{padding: 15px 15px 40px; transition: 0.4s;}
 
-.card:hover{background: rgb(21, 10, 26);}
+.card:hover{background: #150a1a;}
 
 .container-card{
     margin:auto;
@@ -238,32 +238,24 @@ body{background-color: black;}
 /*PAGINA ANIMES_TEMPLATE*/
 .container-anime-template{
     margin:auto;
-    max-width: 100%;
-    display: grid;
-    grid-template-columns: 80% 20%;
-    justify-content: center;
+    max-width:1000px;
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
-
 .grid-descricao{
-    margin:auto;
-    max-width: 100%;
-    display: grid;
-    grid-template-columns: 35% 65%;
-    justify-content: center;
+    padding:15px 15px 40px;
 }
 
-.div-image-template{width: 100%;}
-
-.image-anime-template{width: 100%;}
+.comentario{
+    margin:auto;
+    display:grid;
+    max-width:1000px;
+}
 
 .font-anime-template{font-size: 28px;}
 
-.descricao-anime-template{
+.image-anime-template{
     width: 100%;
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-    hyphens: auto;
+    height:290px;
+    object-fit:cover;
 }
-
-
-

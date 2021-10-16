@@ -87,56 +87,42 @@
                 </div>
             </section>
             <!--Banner fim-->
-            <section class="content">
-                <div class="m-0 p-0">
-                    <div class="borderbottom-purple">
-                        <p class="text-center text-light font-weight-bold display-5 text-uppercase">one piece</p>
-                    </div>
-                    <div class="grid-descricao p-0 m-0">
-                        <div class="p-5 div-image-template">
-                            <img src="./img/animes-banner/tokyoghoul.jpg" alt="NOME ANIME"
-                                class="image-anime-template border-purple p-2">
-                        </div>
-                        <div class="my-4 descricao-template font-anime-template pr-5">
-                            <p class="text-green">Nome: <span class="text-light">Shimoneta to Iu Gainen ga Sonzai Shinai
-                                    Taikutsu na Sekai</span></p>
-                            <p class="text-green">Gênero: <span class="text-light">Comédia</span></p>
-                            <p class="text-green">Estado: <span class="text-light">Finalizado</span></p>
-                            <p class="text-green">Ano de Lançamento: <span class="text-light">2013</span></p>
-                            <p class="text-green">
-                                Sinopse:
-                                <span class="text-light fulljustify">
-                                    Lucy é uma garota de 16 anos que quer se tornar uma maga completa, para isso,
-                                    ela precisa entrar em uma guilda de magos. Um dia visitando a cidade de Harujion,
-                                    ela conhece Natsu, um jovem rapaz que fica facilmente enjoado com qualquer tipo de
-                                    transporte.
-                                    Mas Natsu não é apenas uma criança fraca, ele é um membro de uma das maiores
-                                    e infames guildas: FAIRY TAIL.
-                                </span>
-                            </p>
-                        </div>
-                    </div>
+            <div class="borderbottom-purple">
+                <p class="text-center text-light font-weight-bold display-5 text-uppercase">one piece</p>
+            </div>
+            <div class="container-anime-template">
+                <div class="grid-descricao pt-5 pl-5">
+                    <img src="./img/animes-banner/tokyoghoul.jpg" alt="NOME ANIME"
+                        class="image-anime-template border-purple p-2">
                 </div>
-                <!--Descrição Anime-->
-                <div class="m-0 p-0 borderleft-purple">
-                    <p class="text-center text-light font-weight-bold display-5">Animes</p>
-                    <!--Inicio Cartão-->
-                    <div class="card bg-black border-purple pb-2 cursorh-pointer m-3">
-                        <img src="img/animes-banner/tokyoghoul.jpg" class="anime-image" alt="">
-                        <div class="conteudo">
-                            <h2 class="text-center text-light my-2">Tokyo Ghoul</h2>
-                        </div>
-                    </div>
-                    <!--Fim Cartão-->
-                    <!--Inicio Cartão-->
-                    <div class="card bg-black border-purple pb-2 cursorh-pointer m-3">
-                        <img src="img/animes-banner/tokyoghoul.jpg" class="anime-image" alt="">
-                        <div class="conteudo">
-                            <h2 class="text-center text-light my-2">Tokyo Ghoul</h2>
-                        </div>
-                    </div>
+                <div class="descricao-template font-anime-template px-5 pt-5">
+                    <p class="text-green">Nome: <span class="text-light">Shimoneta to Iu Gainen ga Sonzai Shinai
+                        Taikutsu na Sekai</span></p>
+                    <p class="text-green">Gênero: <span class="text-light">Comédia</span></p>
+                    <p class="text-green">Estado: <span class="text-light">Finalizado</span></p>
+                    <p class="text-green">Ano de Lançamento: <span class="text-light">2013</span></p>        
                 </div>
-            </section>
+            </div>
+            <div class="font-anime-template px-5">
+                <p class="text-green">
+                    Sinopse:
+                    <span class="text-light fulljustify">
+                        Lucy é uma garota de 16 anos que quer se tornar uma maga completa, para isso,
+                        ela precisa entrar em uma guilda de magos. Um dia visitando a cidade de Harujion,
+                        ela conhece Natsu, um jovem rapaz que fica facilmente enjoado com qualquer tipo de
+                        transporte.
+                        Mas Natsu não é apenas uma criança fraca, ele é um membro de uma das maiores
+                        e infames guildas: FAIRY TAIL.
+                    </span>
+                </p> 
+            </div>
+            <div class="borderbottom-purple bordertop-purple">
+                <p class="text-center text-light font-weight-bold display-5 text-uppercase">comentário</p>
+            </div>
+            <form class="comentario p-5">
+                <input class="border-purple mb-5 p-2" type="text" id="autor" name="autor" placeholder="Nome">
+                <textarea class="border-purple p-2" name="comentario" id="comentario" cols="45" rows="8" placeholder="Digite seu comentário"></textarea>
+            </form>
         </main>
         <!--Contéudo Site-->
         <!--Footer-->
