@@ -124,9 +124,9 @@
                 <p class="text-center text-light font-weight-bold display-5 text-uppercase">comentário</p>
             </div>
             <form class="comentario p-5">
-                <input class="border-purple mb-5 p-2" type="text" id="autor" name="autor" placeholder="Nome">
-                <textarea class="border-purple p-2" name="comentario" id="comentario" cols="45" rows="8" placeholder="Digite seu comentário"></textarea>
-                <input class="button py-2 mt-2"type="submit">
+                <input class="border-purple mb-4 p-2 bg-black" type="text" id="autor" name="autor" placeholder="Nome">
+                <textarea class="border-purple mb-4 p-2 bg-black" name="comentario" id="comentario" cols="45" rows="8" placeholder="Digite seu comentário"></textarea>
+                <input class="btn-enviar bg-black border-purple py-2 mt-1"type="submit">
             </form>
             <!--COMENTARIO (FIM)-->
             <!--ANIMES (INICIO)-->
@@ -134,20 +134,23 @@
                 <p class="text-center text-light font-weight-bold display-5 text-uppercase">animes</p>
             </div>
             <div class="container-anime-template">
-                <div class="grid-descricao p-5">
+                <div class="cardRecomendados p-4 m-2 border-purple">
                     <a href="">
-                        <img src="./img/animes-banner/fairytail.jpg" alt="NOME ANIME"class="image-anime-template border-purple p-2">
+                        <img src="./img/animes-banner/fairytail.jpg" alt="NOME ANIME"class="image-anime-template p-2">
                     </a>
+                    <p class="text-center text-light font-weight-bold display-5 text-uppercase">Fairy Tail</p>
                 </div>
-                <div class="grid-descricao p-5">
+                <div class="cardRecomendados p-4 m-2 border-purple">
                     <a href="">
-                        <img src="./img/animes-banner/naruto.jpg" alt="NOME ANIME"class="image-anime-template border-purple p-2">
+                        <img src="./img/animes-banner/naruto.jpg" alt="NOME ANIME"class="image-anime-template p-2">
                     </a>
+                    <p class="text-center text-light font-weight-bold display-5 text-uppercase">Naruto</p>
                 </div>
-                <div class="grid-descricao p-5">
+                <div class="cardRecomendados p-4 m-2 border-purple">
                     <a href="">
-                        <img src="./img/animes-banner/onepiece.jpg" alt="NOME ANIME"class="image-anime-template border-purple p-2">
+                        <img src="./img/animes-banner/onepiece.jpg" alt="NOME ANIME"class="image-anime-template p-2">
                     </a>
+                    <p class="text-center text-light font-weight-bold display-5 text-uppercase">one piece</p>
                 </div>
             </div>
             <!--ANIMES (FIM)-->
