@@ -238,7 +238,7 @@ body{background-color: black;}
 /*PAGINA ANIMES_TEMPLATE*/
 .container-anime-template{
     margin:auto;
-    max-width:1000px;
+    max-width:1200px;
     display:grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
@@ -249,10 +249,26 @@ body{background-color: black;}
 .comentario{
     margin:auto;
     display:grid;
-    max-width:1000px;
+    max-width:1200px;
 }
 
+.comentario textarea{resize:none;}
+
+.button{
+    border-color: #853bd4;
+    background-color: black;
+    color:#2BFF67;
+}
+.button:hover{cursor: pointer;}
+
+.descricao-template{max-width:1200px; margin:auto;}
+
 .font-anime-template{font-size: 28px;}
+
+.sinopse-anime{
+    max-width: 1200px;
+    margin:auto;
+}
 
 .image-anime-template{
     width: 100%;
