@@ -91,19 +91,7 @@ $a_service = new Animes_Service("string_animes", "localhost", "root", "");
         <!--Contéudo Site-->
         <p class="font-weight-bold text-center mt-3 text-light display-4">ANIMES</p>
         <div class="container-card my-4 px-4">
-            <?php
-                if (isset($_GET['pagina'])) {
-                    $pagina = addslashes($_GET['pagina']);
-                    $pg = $pagina;
-                } else {
-                    $pg = 1;
-                }
-            
-            $a_service->carregarCards(9,$pg);
-            ?>
-            <!--Inicio Cartão-->
-            <!--Fim Cartão-->
-            <div class="card bg-black border-purple pb-4 cursorh-pointer" id="adicionarAnime" onclick="document.getElementById('adicionarAnime').style.display='none';document.getElementById('formAnime').style.display='block'">
+        <div class="card bg-black border-purple pb-4 cursorh-pointer" id="adicionarAnime" onclick="document.getElementById('adicionarAnime').style.display='none';document.getElementById('formAnime').style.display='block'">
                 <div class="card-plus text-center">
                     <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="#853bd4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
                         <line x1="12" y1="5" x2="12" y2="19"></line>
@@ -150,6 +138,18 @@ $a_service = new Animes_Service("string_animes", "localhost", "root", "");
                     </div>
                 </div>
             </div>
+            <!--Inicio Cartão-->
+            <?php
+                if (isset($_GET['pagina'])) {
+                    $pagina = addslashes($_GET['pagina']);
+                    $pg = $pagina;
+                } else {
+                    $pg = 1;
+                }
+            
+            $a_service->carregarCards(9,$pg);
+            ?>
+            <!--Fim Cartão-->
         </div>
         <!--Footer-->
         <footer id="sticky-footer" class="flex-shrink-0 py-4 text-white bordertop-purple">
