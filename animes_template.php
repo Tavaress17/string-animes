@@ -55,10 +55,8 @@
                                     <!--Checkbox-->
                                     <div class="col d-flex justify-content-center">
                                         <div class="form-check">
-                                            <input class="form-check-input checkboxCustom" type="checkbox" value=""
-                                                id="lembrarLogin" />
-                                            <label class="pl-2 form-check-label text-light" for="lembrarLogin">Lembrar-se de
-                                                mim</label>
+                                            <input class="form-check-input checkboxCustom" type="checkbox" value="" id="lembrarLogin" />
+                                            <label class="pl-2 form-check-label text-light" for="lembrarLogin">Lembrar-se de mim</label>
                                         </div>
                                     </div>
                                     <div class="col">
@@ -69,7 +67,7 @@
                                     class="btn btn-entrar text-white bg-black border-purple btn-block">Entrar</button>
                             </form>
                             <div class="d-flex justify-content-center bordertop-purple py-2">
-                                <a class="text-green" href="#">Não tem uma conta? Crie uma!</a>
+                                <a class="text-green" href="telaCadastro.php">Não tem uma conta? Crie uma!</a>
                             </div>
                         </div>
                     </div>
