@@ -55,34 +55,16 @@ $a_service = new Animes_Service("string_animes", "localhost", "root", "");
         <p class="font-weight-bold text-center mt-3 text-light display-4">ANIMES</p>
         <div class="container-card my-4 px-4">
             <?php
-            $a_service->carregarCards();
+                if (isset($_GET['pagina'])) {
+                    $pagina = addslashes($_GET['pagina']);
+                    $pg = $pagina;
+                } else {
+                    $pg = 1;
+                }
+            
+            $a_service->carregarCards(9,$pg);
             ?>
             <!--Inicio Cartão-->
-            <div class="card bg-black border-purple pb-4 cursorh-pointer">
-                <img src="img/animes-banner/tokyoghoul.jpg" class="anime-image" alt="">
-                <div class="conteudo">
-                    <h2 class="text-center text-light my-2">Tokyo Ghoul</h2>
-                    <div class="card-sinopse">
-                        <p class="text-justify text-light">
-                            Tóquio é assombrada por ghouls, humanos que se alimentam somente de carne humana.
-                            As pessoas estão tomadas de medo dessas “criaturas” cuja identidade é um mistério.
-                            Um estudante chamado Kaneki encontra Rize, uma menina que é uma ávida leitora como ele,
-                            no café que frequenta. Como Kaneki tem uma queda por Rize, eles se encontram com cada
-                            vez mais frequência, até uma noite fatídica. Kaneki descobre da pior forma possível
-                            que Rize é um Ghoul, porém acaba escapando por pura sorte, mas com sérios ferimentos.
-                            Quando se recupera descobre que órgãos da Ghoul foram passados para o seu corpo,
-                            lhe dando a mesma sede de sangue das criaturas.
-                        </p>
-                        <a href=""> Mais... </a>
-                    </div>
-                    <div class="float-right mt-3">
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-outline-light btn-editar">Editar</button>
-                            <button type="button" class="btn btn-outline-light btn-excluir">Excluir</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <!--Fim Cartão-->
             <div class="card bg-black border-purple pb-4 cursorh-pointer" id="adicionarAnime" onclick="document.getElementById('adicionarAnime').style.display='none';document.getElementById('formAnime').style.display='block'">
                 <div class="card-plus text-center">
