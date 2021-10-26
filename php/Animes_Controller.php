@@ -1,9 +1,9 @@
 <?php
 //CONEXÃO
-
+session_start();
 require_once '../php/Animes_Service.php';
 $anime_service = new Animes_Service("string_animes", "localhost", "root", "");
-session_start();
+
 
 if(isset($_POST['btn-cadastro-anime'])) {// VERIFICA SE A PESSOA CLICKOU PARA CADASTRAR UM ANIME
     //RECEBE OS VALORES DOS FORMULÁRIOS E ADICIONA-OS EM VARIAVEIS
@@ -56,18 +56,20 @@ if(isset($_POST['btn-editar-anime'])){
     $genero = addslashes ($_POST['genero']);
     $dataLancamento = addslashes ($_POST['dataLancamento']);
     $statusLancamento = addslashes ($_POST['statusLancamento']);
+    $id_anime = addslashes ($_POST['id_atualizar']);
     $imagem = $_FILES['imagem'];
-    $id_anime = $_SESSION['anime_att'];
+
     
     if(!empty($nomeAnime) && !empty($sinopse) && !empty($genero) && !empty($dataLancamento) && !empty($statusLancamento) && !empty($imagem)) {
         $resp = $anime_service->buscarAnime($nomeAnime);
-        if(!empty($resp) && $resp['idAnime'] != $_SESSION['anime_att']){
+        if(!empty($resp) && $resp['idAnime'] != $id_anime){
             echo "ANIME JÁ CADASTRADO, NOME INVÁLIDO";
         }else{
             if(empty($imagem["tmp_name"])){
-                $nome_imagem = $resp['animeImagem'];
+                $res = $anime_service->buscarAnimeById($id_anime);
+                $nome_imagem = $res['animeImagem'];
                 $anime_service->atualizacaoDados($nomeAnime, $sinopse, $genero, $dataLancamento, $statusLancamento, $id_anime, $nome_imagem);
-                //header('Location: ../index.php');
+                header('Location: ../index.php');
             }else{
                 $largura = 1000;
                 $altura = 1000;

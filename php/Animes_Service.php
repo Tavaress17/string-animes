@@ -1,4 +1,5 @@
 <?php
+
 class Animes_Service{
     
     private $pdo;
@@ -18,7 +19,7 @@ class Animes_Service{
     }
     
     public function buscarAnime($nomeAnime){
-        $cmd = $this->pdo->prepare("SELECT * FROM animes WHERE nomeAnime, = :an");
+        $cmd = $this->pdo->prepare("SELECT * FROM animes WHERE nomeAnime = :an");
         $cmd->bindValue(":an", $nomeAnime);
         $cmd->execute();
         $res = $cmd->fetch(PDO::FETCH_ASSOC);
@@ -55,6 +56,12 @@ class Animes_Service{
         $cmd -> bindValue(':sl', $statusLancamento );
         $cmd->bindValue(":id", $id);
         $cmd -> bindValue(':an', $animeImagem );
+        $cmd->execute();
+    }
+    
+    public function excluirAnime($id_anime){
+        $cmd = $this->pdo->prepare("DELETE FROM animes WHERE idAnime = :id");//QUERY DO MYSLQ PARA EXCLUSÃO DE INSERÇÕES
+        $cmd->bindValue(":id",$id_anime);
         $cmd->execute();
     }
     

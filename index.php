@@ -95,8 +95,13 @@ $anime_service = new Animes_Service("string_animes", "localhost", "root", "");
             if(isset($_GET['id_anime'])){
                 $id_anime = $_GET['id_anime'];
                 $res = $anime_service->buscarAnimeById($id_anime);
-                $_SESSION['anime_att'] = $res['idAnime']; 
             }
+            
+            if(isset($_GET['id_excluir'])){
+                $id_anime = $_GET['id_excluir'];
+                $anime_service->excluirAnime($id_anime);
+            }
+            
         ?>
         
         <div class="container-card my-4 px-4">
@@ -150,6 +155,7 @@ $anime_service = new Animes_Service("string_animes", "localhost", "root", "");
                                 }else{
                                     echo " <label>Imagem cadastrada: ".$res['animeImagem']."</label><br>"
                                             . "<label for='imagem'>Imagem:</label>";
+                                     echo "<input class='input-adicionar-anime text-light bg-black border-green' type='hidden' name='id_atualizar' value='$id_anime'>";
 
                                 }
                             ?>
