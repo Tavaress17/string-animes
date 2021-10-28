@@ -35,6 +35,8 @@ body{background-color: black;}
 
 .bordery-purple{border-top: 2px solid #853bd4; border-bottom: 2px solid #853bd4;}
 
+.borderx-purple{border-right: 2px solid #853bd4; border-left: 2px solid #853bd4;}
+
 .cursorh-pointer:hover{cursor: pointer;}
 
 .cursor-pointer{cursor: pointer;}
@@ -85,6 +87,7 @@ body{background-color: black;}
 .inputLogin{
     outline: none;
     appearance: none;
+    transition: 0.4s;
 }
 
 .inputLogin:focus{
@@ -177,7 +180,7 @@ body{background-color: black;}
 /* CARD STYLE */
 .card{padding: 15px 15px 40px; transition: 0.4s;}
 
-.card:hover{background: rgb(21, 10, 26);}
+.card:hover{background: #150a1a;}
 
 .container-card{
     margin:auto;
@@ -238,32 +241,104 @@ body{background-color: black;}
 /*PAGINA ANIMES_TEMPLATE*/
 .container-anime-template{
     margin:auto;
-    max-width: 100%;
-    display: grid;
-    grid-template-columns: 80% 20%;
-    justify-content: center;
+    max-width:1200px;
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+.grid-descricao{padding:15px 15px 40px;}
+
+.cardRecomendados:hover{cursor: pointer; background-color: #150a1a;}
+
+.comentario{margin:auto;display:grid;max-width:1200px;}
+
+.comentario input{
+    color: white; 
+    outline: none; 
+    appearance: none; 
+    transition: 0.5s;
 }
 
-.grid-descricao{
-    margin:auto;
-    max-width: 100%;
-    display: grid;
-    grid-template-columns: 35% 65%;
-    justify-content: center;
+.comentario input:focus{border: #2BFF67 2px solid;}
+
+.comentario textarea{
+    resize:none; 
+    color: white; 
+    outline: none; 
+    appearance: none;
+    transition: 0.5s;
 }
 
-.div-image-template{width: 100%;}
+/*Tela Cadastro*/
+.inputAniversario{
+    width: 100%;
+    border: #853bd4 2px solid;
+    background-color: black;
+    color: white;
+    outline: none;
+    transition: 0.4s;
+}
 
-.image-anime-template{width: 100%;}
+.inputAniversario:focus{
+    border: #2BFF67 2px solid;   
+}
+
+.comentario textarea:focus{border: #2BFF67 2px solid;}
+
+.btn-enviar{color: #853bd4;transition: 0.3s;cursor: pointer;}
+
+.btn-enviar:hover{background-color: #853bd4; color: white;}
+
+.descricao-template{max-width:1200px; margin:auto;}
 
 .font-anime-template{font-size: 28px;}
 
-.descricao-anime-template{
-    width: 100%;
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-    hyphens: auto;
+.sinopse-anime{max-width: 1200px;margin:auto;}
+
+.image-anime-template{width: 100%;height:290px;object-fit:cover;}
+
+
+/*PERFIL*/
+
+.content-profile{width: 45%;}
+
+.user{align-items: center;}
+
+.img-profile{border-radius: 130px;width: 260px;height: 260px;}
+
+.img-profile img{
+    width: 100%; 
+    height: 100%; 
+    border-radius: 130px;
+    object-fit: cover;
 }
 
+.btn-editar-profile{width: 80px;}
 
+.btn-editar-profile:hover{background-color: #2BFF67; border: 2px solid white; color: black;}
 
+.btn-logout{width: 80px;}
+
+.btn-logout:hover{background-color: red; border: 2px solid white; color: white;}
+
+.informacoes{
+    margin-top: 35px;
+    text-align: justify;
+    color: white;
+    font-size: 1.1em;
+    width: 60%;
+}
+
+.informacoes span{color: #2BFF67;font-size: 1.2em;}
+
+@media (min-width: 200px){
+    .content-profile{width: 90%;}
+}
+@media (min-width: 405px){
+    .content-profile{width: 70%;}
+}
+@media (min-width: 805px){
+    .content-profile{width: 50%;}
+}
+@media (min-width: 1025px){
+    .content-profile{width: 40%;}
+}

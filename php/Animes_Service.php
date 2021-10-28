@@ -38,8 +38,10 @@ class Animes_Service{
     $result -> execute();
     var_dump($result -> fetchAll(PDO::FETCH_OBJ));*/
     
-    public function carregarCards(){
-        $sql = $this->connection->prepare( "SELECT nomeAnime, sinopse, animeImagem FROM animes;");//PEGA TODOS OS VIDEOS
+    public function carregarCards($reg_pag, $pg){
+        $inicio = ($pg - 1) * $reg_pag;
+        
+        $sql = $this->connection->prepare( "SELECT nomeAnime, sinopse, animeImagem FROM animes LIMIT $inicio,$reg_pag;");//PEGA TODOS OS VIDEOS
         $sql->execute();
 
         if ($sql->rowCount() > 0) {//Enquanto tiverem linhas na tabela
@@ -47,25 +49,56 @@ class Animes_Service{
                 $nomeAnime = $res['nomeAnime'];
                 $sinopse = $res['sinopse'];
                 $animeImagem = $res['animeImagem'];
-                echo "<div class='col-md-4 mb-5'>
-                        <div class='card bg-black border-853bd4 custom-card cursorh-pointer'>
-                        <img class='card-img' src='./img/animes-banner/$animeImagem.jpg' alt='' style='height: 300px; width: 100%; display: block;'>
-                        <p class='font-weight-bold text-light display-6 text-center mt-3 mb-0 text-uppercase'>$nomeAnime</p>
-                            <div class='p-2'>
-                                <div class='text-light card-sinopse mb-3'>
-                                    <p class='text-justify'>$sinopse</p>
-                                    <a href=''>Mais...</a>
-                                </div>
-                                <div class='float-right'>
-                                    <div class='btn-group'>
-                                        <button type='button' class='btn btn-outline-light btn-editar'>Editar</button>
-                                        <button type='button' class='btn btn-outline-light btn-excluir'>Excluir</button>
-                                    </div>
-                                </div>
-                            </div>
+                echo "
+                <div class='card bg-black border-purple pb-4 cursorh-pointer'>
+                <img src='img/animes-banner/$animeImagem.jpg' class='anime-image' alt=''>
+                <div class='conteudo'>
+                    <h2 class='text-center text-light my-2'>$nomeAnime</h2>
+                    <div class='card-sinopse'>
+                        <p class='text-justify text-light'>
+                           $sinopse
+                        </p>
+                        <a href=''> Mais... </a>
+                    </div>
+                    <div class='float-right mt-3'>
+                        <div class='btn-group'>
+                            <button type='button' class='btn btn-outline-light btn-editar'>Editar</button>
+                            <button type='button' class='btn btn-outline-light btn-excluir'>Excluir</button>
                         </div>
-                    </div>";
+                    </div>
+                </div>
+            </div>";
             }
+        }
+        
+        $total = $this->connection->prepare("SELECT * FROM animes;");
+        $total->execute();
+        $tp = $total->rowCount() / $reg_pag;
+        $tp = ceil($tp);
+
+        echo "<div class='paginacao'>";
+        $anterior = $pg - 1;
+        $proximo = $pg + 1;
+        if ($pg == $tp && $anterior == 0) {
+            echo "<a href='?pagina=$anterior' style='pointer-events: none; opacity: 0.5;'><img src='img/back.png' style='widht:50px; height:50px;'></a>"
+            . " | " .
+            "<a href='?pagina=$proximo' style='pointer-events: none; opacity: 0.5;'><img src='img/next.png' style='widht:50px; height:50px;'></a>" .
+            "</div>";
+        } else if ($pg == $tp) {
+            echo "<a href='?pagina=$anterior'><img src='img/back.png' style='widht:50px; height:50px;'></a>"
+            . " | " .
+            "<a href='?pagina=$proximo' style='pointer-events: none; opacity: 0.5;'><img src='img/next.png' style='widht:50px; height:50px;'></a>" .
+            "</div>";
+        } else if ($anterior == 0) {
+            echo "<a href='?pagina=$anterior' style='pointer-events: none; opacity: 0.5;'><img src='img/back.png' style='widht:50px; height:50px;'></a>"
+            . " | " .
+            "<a href='?pagina=$proximo' ><img src='img/next.png' style='widht:50px; height:50px;'></a>" .
+            "</div>";
+        } else {
+            echo "<a href='?pagina=$anterior'><img src='img/back.png' style='widht:50px; height:50px;'></a>"
+            . " | " .
+            "<a href='?pagina=$proximo'><img src='img/next.png' style='widht:50px; height:50px;'></a>" .
+            "</div>";
         }
     }
 }
