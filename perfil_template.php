@@ -85,6 +85,31 @@
                 </div>
             </section>
             <!--Banner-->
+            <div class="d-flex justify-content-center">
+                <section class="content-profile d-flex flex-column borderx-purple p-5">
+                    <article class="d-flex flex-column user">
+                        <div class="img-profile p-1 border-purple">      
+                            <img src="img/animes-banner/naruto.jpg" alt="Perfil">
+                        </div>
+                        <h3 class="text-purple mt-2">Nome Fantasia</h3>
+                    </article>
+                    <div class="d-flex justify-content-center">
+                        <article class="informacoes" id="informacoes">
+                            <p><span>Nome:</span> Teste</p>
+                            <p><span>E-mail:</span> Teste</p>
+                            <p><span>Idade:</span> Teste</p>
+                            <p><span>Genêro:</span> Teste</p>
+                            <p><span>Descrição:</span> Teste</p>
+                        </article>
+                    </div>
+                    <div class='d-flex justify-content-center pt-4'>
+                        <div class='btn-group'>
+                        <button type='button' class='btn bg-black border-purple text-purple font-weight-bold btn-editar-profile'>Editar</button>
+                        <button type='button' class='btn bg-black border-purple text-purple font-weight-bold btn-logout'>Logout</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
         </main>
         <!--Contéudo Site-->
         <!--Footer-->
