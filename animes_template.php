@@ -95,7 +95,7 @@
                         class="image-anime-template border-purple p-2">
                 </div>
                 <div class="descricao-template font-anime-template py-5 pl-5">
-                    <p class="text-green">Nome: <span class="text-light">Shimoneta to Iu Gainen ga Sonzai Shinai Taikutsu na Sekai</span></p>
+                    <p class="text-green">Nome: <span class="text-light">Gainen ga Sonzai Shinai Taikutsu na Sekai</span></p>
                     <p class="text-green">Gênero: <span class="text-light">Comédia</span></p>
                     <p class="text-green">Estado: <span class="text-light">Finalizado</span></p>
                     <p class="text-green">Ano de Lançamento: <span class="text-light">2013</span></p>        

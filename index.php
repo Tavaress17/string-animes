@@ -1,6 +1,6 @@
 <?php
 require_once './php/Animes_Service.php';
-$a_service = new Animes_Service("string_animes", "localhost", "root", "");
+$anime_service = new Animes_Service("string_animes", "localhost", "root", "");
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -90,6 +90,20 @@ $a_service = new Animes_Service("string_animes", "localhost", "root", "");
         </main>
         <!--Contéudo Site-->
         <p class="font-weight-bold text-center mt-3 text-light display-4">ANIMES</p>
+        
+        <?php
+            if(isset($_GET['id_anime'])){
+                $id_anime = $_GET['id_anime'];
+                $res = $anime_service->buscarAnimeById($id_anime);
+            }
+            
+            if(isset($_GET['id_excluir'])){
+                $id_anime = $_GET['id_excluir'];
+                $anime_service->excluirAnime($id_anime);
+            }
+            
+        ?>
+        
         <div class="container-card my-4 px-4">
         <div class="card bg-black border-purple pb-4 cursorh-pointer" id="adicionarAnime" onclick="document.getElementById('adicionarAnime').style.display='none';document.getElementById('formAnime').style.display='block'">
                 <div class="card-plus text-center">
@@ -102,38 +116,52 @@ $a_service = new Animes_Service("string_animes", "localhost", "root", "");
             <div id="formAnime" class="card card-form bg-black border-green pb-4 cursorh-pointer">
                 <div class="p-0">
                     <div class="text-center text-light">
-                        <form method="post" action="./php/pdo.php">
+                        <form method="post" action="./php/Animes_Controller.php" enctype="multipart/form-data">
                             <label for="nomeAnime">Nome do Anime:</label>
-                            <input class="input-adicionar-anime text-light bg-black border-green" type="text" name="nomeAnime" id="nomeAnime" placeholder="Nome do Anime">
+                            <input class="input-adicionar-anime text-light bg-black border-green" type="text" name="nomeAnime" id="nomeAnime" placeholder="Nome do Anime" value="<?php if(isset($res)){echo $res['nomeAnime'];} ?>">
                             <label for="sinopse">Sinopse:</label>
-                            <input class="input-adicionar-anime text-light bg-black border-green" type="text" name="sinopse" id="sinopse" placeholder="Sinopse">
+                            <input class="input-adicionar-anime text-light bg-black border-green" type="text" name="sinopse" id="sinopse" placeholder="Sinopse" value="<?php if(isset($res)){echo $res['sinopse'];} ?>">
                             <label for="genero">Gênero:</label>
                             <div class="d-flex justify-content-center">
                                 <select class="select-adicionar-anime text-light bg-black border-green" name="genero" id="genero">
-                                    <option class="option-adicionar-anime" value="Comedia" selected="selected">Comédia</option>
-                                    <option class="option-adicionar-anime" value="Esportes">Esportes</option>
-                                    <option class="option-adicionar-anime" value="Fantasia">Fantasia</option>
-                                    <option class="option-adicionar-anime" value="Scifi">Ficção Científica</option>
-                                    <option class="option-adicionar-anime" value="Isekai">Isekai</option>
-                                    <option class="option-adicionar-anime" value="Romance">Romance</option>
-                                    <option class="option-adicionar-anime" value="Shounen">Shounen</option>
-                                    <option class="option-adicionar-anime" value="Slice Life">Slice Life</option>
-                                    <option class="option-adicionar-anime" value="Suspense">Suspense</option>
-                                    <option class="option-adicionar-anime" value="Terror">Terror</option>
+                                    <option class="option-adicionar-anime" value="Comedia" <?php if(isset($res) && $res['genero'] == 'Comedia'){echo "selected = 'SELECTED'" ;} ?>>Comédia</option>
+                                    <option class="option-adicionar-anime" value="Esportes" <?php if(isset($res) && $res['genero'] == 'Esportes'){echo "selected = 'SELECTED'" ;} ?>>Esportes</option>
+                                    <option class="option-adicionar-anime" value="Fantasia" <?php if(isset($res) && $res['genero'] == 'Fantasia'){echo "selected = 'SELECTED'" ;} ?>>Fantasia</option>
+                                    <option class="option-adicionar-anime" value="Scifi" <?php if(isset($res) && $res['genero'] == 'Scifi'){echo "selected = 'SELECTED'" ;} ?>>Ficção Científica</option>
+                                    <option class="option-adicionar-anime" value="Isekai"> <?php if(isset($res) && $res['genero'] == 'Isekai'){echo "selected = 'SELECTED'" ;} ?>Isekai</option>
+                                    <option class="option-adicionar-anime" value="Romance" <?php if(isset($res) && $res['genero'] == 'Romance'){echo "selected = 'SELECTED'" ;} ?>>Romance</option>
+                                    <option class="option-adicionar-anime" value="Shounen" <?php if(isset($res) && $res['genero'] == 'Shounen'){echo "selected = 'SELECTED'" ;} ?>>Shounen</option>
+                                    <option class="option-adicionar-anime" value="Slice of Life" <?php if(isset($res) && $res['genero'] == 'Slice of Life'){echo "selected = 'SELECTED'" ;} ?>>Slice Life</option>
+                                    <option class="option-adicionar-anime" value="Suspense" <?php if(isset($res) && $res['genero'] == 'Suspense'){echo "selected = 'SELECTED'" ;} ?>>Suspense</option>
+                                    <option class="option-adicionar-anime" value="Terror" <?php if(isset($res) && $res['genero'] == 'Terror'){echo "selected = 'SELECTED'" ;} ?>>Terror</option>
                                 </select>
                             </div>
                             <label for="dataLancamento">Data de Lançamento:</label>
-                            <input class="input-adicionar-anime text-light bg-black border-green" type="text" name="dataLancamento" id="dataLancamento" placeholder="Ano de Lançamento">
+                            <input class="input-adicionar-anime text-light bg-black border-green" type="text" name="dataLancamento" id="dataLancamento" placeholder="Ano de Lançamento" value="<?php if(isset($res)){echo $res['dataLancamento'];} ?>">
                             <label for="statusLancamento">Status:</label>
                             <div class="d-flex justify-content-center">
                                 <select class="select-adicionar-anime text-light bg-black border-green" name="statusLancamento" id="statusLancamento" placeholder="Status de Lançamento">
-                                    <option class="option-adicionar-anime" value="Concluido" selected="selected">Concluido</option>
-                                    <option class="option-adicionar-anime" value="Em lançamento">Em lançamento</option>
+                                    <option class="option-adicionar-anime" value="Concluido" <?php if(isset($res) && $res['statusLancamento'] == 'Concluido'){echo "selected = 'SELECTED'" ;} ?>>Concluido</option>
+                                    <option class="option-adicionar-anime" value="Em lançamento" <?php if(isset($res) && $res['statusLancamento'] == 'Em lançamento'){echo "selected = 'SELECTED'" ;} ?>>Em lançamento</option>
                                 </select>
                             </div>
-                            <label for="animeImagem">Nome para o path da imagem:</label>
-                            <input class="input-adicionar-anime text-light bg-black border-green" type="text" name="animeImagem" id="animeImagem" placeholder="Nome minúsculo. Ex: naruto">
-                            <input type="submit" value="Adicionar Anime" class="submit-adicionar-anime text-black bg-green border-green">
+                            <?php  
+                                if(!isset($res)){
+                                    echo '
+                                    <label for="animeImagem">Nome para o path da imagem:</label>
+                                    <input class="input-adicionar-anime text-light bg-black border-green" type="text" name="animeImagem" id="animeImagem" placeholder="Nome minúsculo. Ex: naruto">
+                                    <label for="imagem">Imagem:</label>
+                                    ';
+                                }else{
+                                    echo " <label>Imagem cadastrada: ".$res['animeImagem']."</label><br>"
+                                            . "<label for='imagem'>Imagem:</label>";
+                                     echo "<input class='input-adicionar-anime text-light bg-black border-green' type='hidden' name='id_atualizar' value='$id_anime'>";
+
+                                }
+                            ?>
+                           
+                            <input type="file" name="imagem"/>
+                            <input type="submit" name="<?php if(isset($res)){echo 'btn-editar-anime';}else{echo 'btn-cadastro-anime';} ?>" value="<?php if(isset($res)){echo 'Atualizar dados';}else{echo 'Adicionar anime';} ?>" class="submit-adicionar-anime text-black bg-green border-green">
                         </form>
                     </div>
                 </div>
@@ -147,7 +175,7 @@ $a_service = new Animes_Service("string_animes", "localhost", "root", "");
                     $pg = 1;
                 }
             
-            $a_service->carregarCards(9,$pg);
+                $anime_service->carregarCards(9,$pg);
             ?>
             <!--Fim Cartão-->
         </div>
