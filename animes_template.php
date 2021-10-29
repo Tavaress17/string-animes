@@ -1,3 +1,8 @@
+<?php
+require_once './php/Animes_Service.php';
+$anime_service = new Animes_Service("string_animes", "localhost", "root", "");
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -85,20 +90,33 @@
                 </div>
             </section>
             <!--Banner fim-->
+            <?php
+                if(isset($_GET['anime']) && !empty($_GET['anime'])){
+                    $id_anime = addslashes($_GET['anime']);
+                    if(!empty($anime_service->buscarAnimeById($id_anime))){
+                        $res = $anime_service->buscarAnimeById($id_anime);
+                    }else{
+                        header('Location: index.php');
+                    }
+                }else{
+                    header('Location: index.php');
+                }
+            ?>
+            
             <!--IMAGEM + DESCRIÇÃO (INICIO)-->
             <div class="borderbottom-purple">
-                <p class="text-center text-light font-weight-bold display-5 text-uppercase">one piece</p>
+                <p class="text-center text-light font-weight-bold display-5 text-uppercase"><?php echo $res['nomeAnime']; ?></p>
             </div>
             <div class="container-anime-template">
                 <div class="grid-descricao p-5">
-                    <img src="./img/animes-banner/tokyoghoul.jpg" alt="NOME ANIME"
-                        class="image-anime-template border-purple p-2">
+                    <img src="../string-animes/img/animes-banner/<?php echo $res['animeImagem']; ?>" alt="<?php echo $res['nomeAnime']; ?>"
+                        class="image-anime-template border-purple p-2" style='object-fit: cover;'>
                 </div>
                 <div class="descricao-template font-anime-template py-5 pl-5">
-                    <p class="text-green">Nome: <span class="text-light">Gainen ga Sonzai Shinai Taikutsu na Sekai</span></p>
-                    <p class="text-green">Gênero: <span class="text-light">Comédia</span></p>
-                    <p class="text-green">Estado: <span class="text-light">Finalizado</span></p>
-                    <p class="text-green">Ano de Lançamento: <span class="text-light">2013</span></p>        
+                    <p class="text-green">Nome: <span class="text-light"><?php echo $res['nomeAnime']; ?></span></p>
+                    <p class="text-green">Gênero: <span class="text-light"><?php echo $res['genero']; ?></span></p>
+                    <p class="text-green">Estado: <span class="text-light"><?php echo $res['statusLancamento']; ?></span></p>
+                    <p class="text-green">Ano de Lançamento: <span class="text-light"><?php echo $res['dataLancamento']; ?></span></p>        
                 </div>
             </div>
             <!--IMAGEM + DESCRIÇÃO (FIM)-->
@@ -107,12 +125,7 @@
                 <p class="text-green">
                     Sinopse:
                     <span class="text-light fulljustify">
-                        Lucy é uma garota de 16 anos que quer se tornar uma maga completa, para isso,
-                        ela precisa entrar em uma guilda de magos. Um dia visitando a cidade de Harujion,
-                        ela conhece Natsu, um jovem rapaz que fica facilmente enjoado com qualquer tipo de
-                        transporte.
-                        Mas Natsu não é apenas uma criança fraca, ele é um membro de uma das maiores
-                        e infames guildas: FAIRY TAIL.
+                        <?php echo $res['sinopse']; ?>
                     </span>
                 </p> 
             </div>
@@ -132,24 +145,11 @@
                 <p class="text-center text-light font-weight-bold display-5 text-uppercase">animes</p>
             </div>
             <div class="container-anime-template">
-                <div class="cardRecomendados p-4 m-2 border-purple">
-                    <a href="">
-                        <img src="./img/animes-banner/fairytail.jpg" alt="NOME ANIME"class="image-anime-template p-2">
-                    </a>
-                    <p class="text-center text-light font-weight-bold display-5 text-uppercase">Fairy Tail</p>
-                </div>
-                <div class="cardRecomendados p-4 m-2 border-purple">
-                    <a href="">
-                        <img src="./img/animes-banner/naruto.jpg" alt="NOME ANIME"class="image-anime-template p-2">
-                    </a>
-                    <p class="text-center text-light font-weight-bold display-5 text-uppercase">Naruto</p>
-                </div>
-                <div class="cardRecomendados p-4 m-2 border-purple">
-                    <a href="">
-                        <img src="./img/animes-banner/onepiece.jpg" alt="NOME ANIME"class="image-anime-template p-2">
-                    </a>
-                    <p class="text-center text-light font-weight-bold display-5 text-uppercase">one piece</p>
-                </div>
+                <?php 
+                    if(isset($_GET['anime']) && !empty($_GET['anime'])){
+                        $anime_service->recomendados($id_anime);
+                    }
+                ?>
             </div>
             <!--ANIMES (FIM)-->
         </main>

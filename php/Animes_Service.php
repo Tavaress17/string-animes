@@ -65,6 +65,27 @@ class Animes_Service{
         $cmd->execute();
     }
     
+    public function recomendados($anime_atual){
+        $cmd = $this->pdo->prepare("SELECT DISTINCT idAnime, nomeAnime, animeImagem FROM animes WHERE NOT idAnime = $anime_atual ORDER BY RAND() LIMIT 3");
+        $cmd->execute();
+        
+        if ($cmd->rowCount() > 0) {//Enquanto tiverem linhas na tabela
+            foreach ($cmd as $res) {
+                $id_anime = $res['idAnime'];
+                $nomeAnime = $res['nomeAnime'];
+                $animeImagem = $res['animeImagem'];
+                echo "
+                <div class='cardRecomendados p-4 m-2 border-purple'>
+                    <a href='animes_template.php?anime=$id_anime'>
+                        <img src='./img/animes-banner/$animeImagem' alt='$nomeAnime'class='image-anime-template p-2'>
+                    </a>
+                    <p class='text-center text-light font-weight-bold display-5 text-uppercase'>$nomeAnime</p>
+                </div>";
+            }
+        }
+        
+    }
+    
     public function carregarCards($reg_pag, $pg){
         $inicio = ($pg - 1) * $reg_pag;
         
@@ -79,14 +100,14 @@ class Animes_Service{
                 $animeImagem = $res['animeImagem'];
                 echo "
                 <div class='card bg-black border-purple pb-4 cursorh-pointer'>
-                <img src='img/animes-banner/$animeImagem' class='anime-image' alt=''>
+                <img src='img/animes-banner/$animeImagem' class='anime-image'>
                 <div class='conteudo'>
                     <h2 class='text-center text-light my-2'>$nomeAnime</h2>
                     <div class='card-sinopse'>
                         <p class='text-justify text-light'>
                            $sinopse
                         </p>
-                        <a href=''> Mais... </a>
+                        <a href='animes_template.php?anime=$id_anime'> Mais... </a>
                     </div>
                     <div class='float-right mt-3'>
                         <div class='btn-group'>
