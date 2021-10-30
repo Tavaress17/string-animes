@@ -30,19 +30,20 @@ statusLancamento varchar (60) not null,
 animeImagem varchar (255) not null
 )default charset = utf8;
 
-/*Inserção de teste na tabela.*/
-INSERT INTO animes (nomeAnime, sinopse, genero, dataLancamento, statusLancamento, animeImagem) VALUES 
-(
-'Naruto',
-'Naruto é um jovem órfão habitante da Vila da Folha que sonha se tornar o quinto Hokage, 
-o maior guerreiro e governante da vila. Agora Naruto vai contar com a ajuda dos colegas Sakura e Sasuke e do professor dos três, 
-Kakashi Hatake, para perseguir seu sonho e deter os ninjas que planejam fazer mal á sua cidade.',
-'Shounen',
-'2002',
-'Concluido',
-'naruto'
-);
+CREATE TABLE IF NOT EXISTS users(
+id int primary key auto_increment,
+nome varchar(50) not null,
+email varchar(100) not null,
+senha varchar(32) not null,
+data_nasc date not null,
+adm boolean not null,
+img_user varchar(120)
+)default charset = utf8;
+
+insert into users values (default,"Rafas","fael890@gmail.com", md5(5678),  "2004-09-25", true, "");
 
 /*Leitura da tabela*/
 SELECT * FROM animes;
+
+SELECT * FROM users;
 ~~~
