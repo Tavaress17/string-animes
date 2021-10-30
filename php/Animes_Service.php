@@ -109,7 +109,7 @@ class Animes_Service{
                         </p>
                         <a href='animes_template.php?anime=$id_anime'> Mais... </a>
                     </div>
-                    <div class='float-right mt-3'>
+                    <div id='edit_excluir' class='float-right mt-3'>
                         <div class='btn-group'>
                             <button type='button' class='btn btn-outline-light btn-editar'><a href='index.php?id_anime=$id_anime' onclick='document.getElementById('adicionarAnime').style.display='none';document.getElementById('formAnime').style.display='block';'>Editar</a></button>
                             <button type='button' class='btn btn-outline-light btn-excluir' ><a href='index.php?id_excluir=$id_anime'>Excluir</a></button>
