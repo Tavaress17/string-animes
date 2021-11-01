@@ -234,6 +234,8 @@ body{background-color: black;}
 
 .submit-adicionar-anime:hover{padding: 8px;background-color: #853bd4;color: white;}
 
+.paginacao-stroke:hover{stroke: #2BFF67;}
+
 /*---------------------------------------------------------------------------------------*/
 
 /*PAGINA ANIMES_TEMPLATE*/
@@ -339,3 +341,5 @@ body{background-color: black;}
 @media (min-width: 1025px){
     .content-profile{width: 50%;}
 }
+
+.teste-bat{display: inline-block;}

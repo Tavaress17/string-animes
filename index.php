@@ -148,11 +148,9 @@ session_start();
                                 }else{
                                     echo " <label>Imagem cadastrada: ".$res['animeImagem']."</label><br>"
                                             . "<label for='imagem'>Imagem:</label>";
-                                     echo "<input class='input-adicionar-anime text-light bg-black border-green' type='hidden' name='id_atualizar' value='$id_anime'>";
-
+                                    echo "<input class='input-adicionar-anime text-light bg-black border-green' type='hidden' name='id_atualizar' value='$id_anime'>";
                                 }
                             ?>
-                           
                             <input type="file" name="imagem"/>
                             <input type="submit" name="<?php if(isset($res)){echo 'btn-editar-anime';}else{echo 'btn-cadastro-anime';} ?>" value="<?php if(isset($res)){echo 'Atualizar dados';}else{echo 'Adicionar anime';} ?>" class="submit-adicionar-anime text-black bg-green border-green">
                         </form>
@@ -172,6 +170,9 @@ session_start();
             ?>
             <!--Fim Cartão-->
         </div>
+        <?php
+            $anime_service->paginacao(9,$pg);
+        ?>
         <!--Footer-->
         <footer id="sticky-footer" class="flex-shrink-0 py-4 text-white bordertop-purple">
             <div class="container text-center">

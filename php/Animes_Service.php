@@ -85,7 +85,7 @@ class Animes_Service{
         }
         
     }
-    
+
     public function carregarCards($reg_pag, $pg){
         $inicio = ($pg - 1) * $reg_pag;
         
@@ -100,53 +100,55 @@ class Animes_Service{
                 $animeImagem = $res['animeImagem'];
                 echo "
                 <div class='card bg-black border-purple pb-4 cursorh-pointer'>
-                <img src='img/animes-banner/$animeImagem' class='anime-image'>
-                <div class='conteudo'>
-                    <h2 class='text-center text-light my-2'>$nomeAnime</h2>
-                    <div class='card-sinopse'>
-                        <p class='text-justify text-light'>
-                           $sinopse
-                        </p>
-                        <a href='animes_template.php?anime=$id_anime'> Mais... </a>
-                    </div>
-                    <div id='edit_excluir' class='float-right mt-3'>
-                        <div class='btn-group'>
-                            <button type='button' class='btn btn-outline-light btn-editar'><a href='index.php?id_anime=$id_anime' onclick='document.getElementById('adicionarAnime').style.display='none';document.getElementById('formAnime').style.display='block';'>Editar</a></button>
-                            <button type='button' class='btn btn-outline-light btn-excluir' ><a href='index.php?id_excluir=$id_anime'>Excluir</a></button>
+                    <img src='img/animes-banner/$animeImagem' class='anime-image'>
+                    <div class='conteudo pb-5'>
+                        <h2 class='text-center text-light my-2'>$nomeAnime</h2>
+                        <div class='card-sinopse'>
+                            <p class='text-justify text-light'>
+                                $sinopse
+                            </p>
+                            <a href='animes_template.php?anime=$id_anime'> Mais... </a>
+                        </div>
+                        <div id='edit_excluir' class='float-right mt-3'>
+                            <div class='btn-group'>
+                                <button type='button' class='btn btn-outline-light btn-editar'><a href='index.php?id_anime=$id_anime' onclick='document.getElementById('adicionarAnime').style.display='none';document.getElementById('formAnime').style.display='block';'>Editar</a></button>
+                                <button type='button' class='btn btn-outline-light btn-excluir' ><a href='index.php?id_excluir=$id_anime'>Excluir</a></button>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>";
+                </div>";
             }
         }
-        
+    }
+
+    public function paginacao($reg_pag, $pg){
         $total = $this->pdo->prepare("SELECT * FROM animes;");
         $total->execute();
         $tp = $total->rowCount() / $reg_pag;
         $tp = ceil($tp);
-
-        echo "<div class='paginacao'>";
+        
+        echo "<div class='d-flex justify-content-center mb-4'>";
         $anterior = $pg - 1;
         $proximo = $pg + 1;
         if ($pg == $tp && $anterior == 0) {
-            echo "<a href='?pagina=$anterior' style='pointer-events: none; opacity: 0.5;'><img src='img/back.png' style='widht:50px; height:50px;'></a>"
-            . " | " .
-            "<a href='?pagina=$proximo' style='pointer-events: none; opacity: 0.5;'><img src='img/next.png' style='widht:50px; height:50px;'></a>" .
+            echo "<a href='?pagina=$anterior' style='pointer-events: none; opacity: 0.5;'><svg class='paginacao-stroke' xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 24 24' fill='none' stroke='#853bd4' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><path d='M19 12H6M12 5l-7 7 7 7'/></svg></a>"
+            .
+            "<a href='?pagina=$proximo' style='pointer-events: none; opacity: 0.5;'><svg class='paginacao-stroke' xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 24 24' fill='none' stroke='#853bd4' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><path d='M5 12h13M12 5l7 7-7 7'/></svg></a>" .
             "</div>";
         } else if ($pg == $tp) {
-            echo "<a href='?pagina=$anterior'><img src='img/back.png' style='widht:50px; height:50px;'></a>"
-            . " | " .
-            "<a href='?pagina=$proximo' style='pointer-events: none; opacity: 0.5;'><img src='img/next.png' style='widht:50px; height:50px;'></a>" .
+            echo "<a href='?pagina=$anterior'><svg class='paginacao-stroke' xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 24 24' fill='none' stroke='#853bd4' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><path d='M19 12H6M12 5l-7 7 7 7'/></svg></a>"
+            .
+            "<a href='?pagina=$proximo' style='pointer-events: none; opacity: 0.5;'><svg class='paginacao-stroke' xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 24 24' fill='none' stroke='#853bd4' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><path d='M5 12h13M12 5l7 7-7 7'/></svg></a>" .
             "</div>";
         } else if ($anterior == 0) {
-            echo "<a href='?pagina=$anterior' style='pointer-events: none; opacity: 0.5;'><img src='img/back.png' style='widht:50px; height:50px;'></a>"
-            . " | " .
-            "<a href='?pagina=$proximo' ><img src='img/next.png' style='widht:50px; height:50px;'></a>" .
+            echo "<a href='?pagina=$anterior' style='pointer-events: none; opacity: 0.5;'><svg class='paginacao-stroke' xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 24 24' fill='none' stroke='#853bd4' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><path d='M19 12H6M12 5l-7 7 7 7'/></svg></a>"
+            .
+            "<a href='?pagina=$proximo'><svg class='paginacao-stroke' xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 24 24' fill='none' stroke='#853bd4' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><path d='M5 12h13M12 5l7 7-7 7'/></svg></a>" .
             "</div>";
         } else {
-            echo "<a href='?pagina=$anterior'><img src='img/back.png' style='widht:50px; height:50px;'></a>"
-            . " | " .
-            "<a href='?pagina=$proximo'><img src='img/next.png' style='widht:50px; height:50px;'></a>" .
+            echo "<a href='?pagina=$anterior'><svg class='paginacao-stroke' xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 24 24' fill='none' stroke='#853bd4' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><path d='M19 12H6M12 5l-7 7 7 7'/></svg></a>"
+            .
+            "<a href='?pagina=$proximo'><svg class='paginacao-stroke' xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 24 24' fill='none' stroke='#853bd4' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><path d='M5 12h13M12 5l7 7-7 7'/></svg></a>" .
             "</div>";
         }
     }

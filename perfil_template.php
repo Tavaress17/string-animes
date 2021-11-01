@@ -100,7 +100,7 @@
             ?>
             
             <div class="d-flex justify-content-center">
-                <section class="content-profile d-flex flex-column borderx-purple p-5">
+                <section class="content-profile d-flex flex-column borderx-purple py-5">
                     <article class="d-flex flex-column user">
                         <div class="img-profile p-1 border-purple">      
                         <?php
@@ -115,7 +115,7 @@
                     </article>
                     <div class="d-flex justify-content-center">
                         <article class="informacoes" id="informacoes">
-                            <p><span>Nome:</span><?php echo "$nome"; ?> </p>
+                            <p><span>Nome: </span><?php echo "$nome"; ?> </p>
                             <p><span>E-mail:</span> <?php echo "$email"; ?></p>
                             <p><span>Data de Nascimento:</span> <?php echo "$data_nasc"; ?></p>
                         </article>
@@ -129,7 +129,7 @@
                     </div>
                 </section>
                 
-                <section class="atualizar-cadastro" id="att-cadastro">
+                <section class="atualizar-cadastro flex-column p-5" id="att-cadastro">
                     <h1 class="m-3 text-center text-purple">Alterar Dados</h1>
                     <div class="d-flex justify-content-center mb-5">
                         <form method="POST" action="./php/User_Controller.php" enctype="multipart/form-data" style="width: 500px;">
