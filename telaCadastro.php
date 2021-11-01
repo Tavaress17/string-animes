@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -39,26 +43,26 @@
     <main role="main bg-black" style="overflow-x: hidden">
     <h1 class="m-3 text-center text-purple">Crie sua conta</h1>
     <div class="d-flex justify-content-center mb-5">
-        <form style="width: 500px;">
-        <div class="form-outline mb-4">
+        <form method="POST" action="./php/User_Controller.php" style="width: 500px;">
+            <div  class="form-outline mb-4">
                 <label class="form-label text-light" for="usernamelLogin">Nome de usuário:</label>
-                <input type="text" id="usernameLogin" class="form-control inputLogin text-light bg-black border-purple" />
+                <input type="text" id="usernameLogin" name="nome" class="form-control inputLogin text-light bg-black border-purple" />
             </div>
             <div class="form-outline mb-4">
                 <label class="form-label text-light" for="emailLogin">Email:</label>
-                <input type="email" id="emailLogin" class="form-control inputLogin text-light bg-black border-purple" />
+                <input type="email" id="emailLogin" name="email" class="form-control inputLogin text-light bg-black border-purple" />
             </div>
             <div class="form-outline mb-3">
                 <label class="form-label text-light" for="senhaLogin">Senha:</label>
-                <input type="password" id="senhaLogin" class="form-control inputLogin text-light bg-black border-purple"/>
+                <input type="password" id="senhaLogin" name="senha" class="form-control inputLogin text-light bg-black border-purple"/>
                 <div class="form-check mt-2">
-                    <input class="form-check-input checkboxCustom" type="checkbox" onclick="visualizarSenha()" value=""id="lembrarLogin" />
+                    <input class="form-check-input checkboxCustom" type="checkbox" onclick="visualizarSenha()" value="" id="lembrarLogin" />
                     <label class="pl-2 pt-1 form-check-label text-light" for="lembrarLogin">Visualizar senha</label>
                 </div>
             </div>
             <div class="form-outline mb-4">
-                <label class="pl-2 pt-1 form-check-label text-light" for="lembrarLogin">Visualizar senha</label>
-                <input type="password" id="confirmSenhaLogin" class="form-control inputLogin text-light bg-black border-purple" />
+                <label class="pl-2 pt-1 form-check-label text-light" for="lembrarLogin">Confirmar Senha:</label>
+                <input type="password" id="confirmSenhaLogin" name="confirmSenha" class="form-control inputLogin text-light bg-black border-purple" />
                 <div class="form-check mt-2">
                     <input class="form-check-input checkboxCustom" type="checkbox" onclick="visualizarConfirmarSenha()" value=""id="lembrarLogin" />
                     <label class="pl-2 pt-1 form-check-label text-light" for="lembrarLogin">Visualizar senha</label>
@@ -67,10 +71,10 @@
             <div class="form-outline mb-4">
                 <label class="form-label text-light" for="aniversario">Data de Nascimento:</label>
                 <div class="d-flex justify-content-center">
-                    <input class="pl-1 inputAniversario" type="date" name="aniversario" id="aniversario">
+                    <input class="pl-1 inputAniversario" type="date" name="data_nasc" id="aniversario">
                 </div>  
             </div>
-            <button type="submit" class="btn btn-entrar text-white bg-black border-purple btn-block">Registrar-se</button>
+            <button type="submit" name="btn-cadastro" class="btn btn-entrar text-white bg-black border-purple btn-block">Registrar-se</button>
         </form>
     </div> 
     </main>

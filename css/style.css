@@ -293,3 +293,49 @@ body{background-color: black;}
 .sinopse-anime{max-width: 1200px;margin:auto;}
 
 .image-anime-template{width: 100%;height:290px;object-fit:cover;}
+
+/*PERFIL*/
+
+.content-profile{width: 45%;}
+
+.user{align-items: center;}
+
+.img-profile{border-radius: 130px;width: 260px;height: 260px;}
+
+.img-profile img{
+    width: 100%; 
+    height: 100%; 
+    border-radius: 130px;
+    object-fit: cover;
+}
+
+.btn-editar-profile{width: 80px;}
+
+.btn-editar-profile:hover{background-color: #2BFF67; border: 2px solid white; color: black;}
+
+.btn-logout{width: 80px;}
+
+.btn-logout:hover{background-color: red; border: 2px solid white; color: white;}
+
+.informacoes{
+    margin-top: 35px;
+    text-align: justify;
+    color: white;
+    font-size: 1.1em;
+    width: 60%;
+}
+
+.informacoes span{color: #2BFF67;font-size: 1.2em;}
+
+@media (min-width: 200px){
+    .content-profile{width: 90%;}
+}
+@media (min-width: 405px){
+    .content-profile{width: 70%;}
+}
+@media (min-width: 805px){
+    .content-profile{width: 50%;}
+}
+@media (min-width: 1025px){
+    .content-profile{width: 50%;}
+}

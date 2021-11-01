@@ -1,6 +1,7 @@
 <?php
 require_once './php/Animes_Service.php';
 $anime_service = new Animes_Service("string_animes", "localhost", "root", "");
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -32,48 +33,9 @@ $anime_service = new Animes_Service("string_animes", "localhost", "root", "");
                         </strong>
                     </a>
                     <!--Login Dropdown-->
-                    <div class="dropdown">
-                        <a href="#" data-toggle="dropdown" aria-expanded="false" class="loginBtn p-0 nav-link dropdown">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none"
-                                stroke="#7031B3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                class="loginIcon">
-                                <path d="M5.52 19c.64-2.2 1.84-3 3.22-3h6.52c1.38 0 2.58.8 3.22 3" />
-                                <circle cx="12" cy="10" r="3" />
-                                <circle cx="12" cy="12" r="10" />
-                            </svg>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right bg-black border-purple loginMenu">
-                            <form class="px-4 py-3">
-                                <div class="form-outline mb-4">
-                                    <label class="form-label text-light" for="emailLogin">Email:</label>
-                                    <input type="email" id="emailLogin"
-                                        class="form-control inputLogin text-light bg-black border-purple" />
-                                </div>
-                                <div class="form-outline mb-4">
-                                    <label class="form-label text-light" for="senhaLogin">Senha:</label>
-                                    <input type="password" id="senhaLogin"
-                                        class="form-control inputLogin text-light bg-black border-purple" />
-                                </div>
-                                <div class="row mb-4">
-                                    <!--Checkbox-->
-                                    <div class="col d-flex justify-content-center">
-                                        <div class="form-check">
-                                            <input class="form-check-input checkboxCustom" type="checkbox" value=""id="lembrarLogin" />
-                                            <label class="pl-2 form-check-label text-light" for="lembrarLogin">Lembrar-se de mim</label>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <a class="text-green" href="#!">Esqueceu a senha?</a>
-                                    </div>
-                                </div>
-                                <button type="submit"
-                                    class="btn btn-entrar text-white bg-black border-purple btn-block">Entrar</button>
-                            </form>
-                            <div class="d-flex justify-content-center bordertop-purple py-2">
-                                <a class="text-green" href="telaCadastro.php">Não tem uma conta? Crie uma!</a>
-                            </div>
-                        </div>
-                    </div>
+                    <?php
+                        include_once 'login_dropdown.php';
+                    ?>
                     <!--Login Dropdown-->
                 </div>
             </div>
@@ -91,21 +53,52 @@ $anime_service = new Animes_Service("string_animes", "localhost", "root", "");
         <!--Contéudo Site-->
         <p class="font-weight-bold text-center mt-3 text-light display-4">ANIMES</p>
         
-        <?php
+        <?php //RECUPERA OS VALORES PARA A ALTERAÇÃO
             if(isset($_GET['id_anime'])){
                 $id_anime = $_GET['id_anime'];
                 $res = $anime_service->buscarAnimeById($id_anime);
             }
             
+            //VERIFICA SE FOI SOLICITADO A EXCLUSÃO DO ANIME
             if(isset($_GET['id_excluir'])){
                 $id_anime = $_GET['id_excluir'];
                 $anime_service->excluirAnime($id_anime);
             }
-            
+
+            if (isset($_SESSION['adm'])) {
+                if ($_SESSION['adm'] == true) {//VERIFICA SE A PESSOA É UM ADMINISTRADOR E SE ESTÁ LOGADA
+                    echo " <style type='text/css'>
+                        #adicionarAnime {
+                            display:block;
+                        }
+                        #edit_excluir{
+                            display: flex;
+                        }
+                    </style>";
+                } else {
+                    echo " <style type='text/css'>
+                        #adicionarAnime {
+                            display:none;
+                        }
+                        #edit_excluir{
+                            display: none;
+                        }
+                    </style>";
+                }
+            }else {//PARA ARRUMAR O mais... QUANDO NÃO FOR ADM, MEXER AQUI
+                echo " <style type='text/css'>
+                    #adicionarAnime {
+                        display:none;
+                    }
+                    #edit_excluir{
+                        display: none;
+                    }
+                </style>";
+            }
         ?>
         
         <div class="container-card my-4 px-4">
-        <div class="card bg-black border-purple pb-4 cursorh-pointer" id="adicionarAnime" onclick="document.getElementById('adicionarAnime').style.display='none';document.getElementById('formAnime').style.display='block'">
+            <div class="card bg-black border-purple pb-4 cursorh-pointer" id="adicionarAnime" onclick="document.getElementById('adicionarAnime').style.display='none';document.getElementById('formAnime').style.display='block'">
                 <div class="card-plus text-center">
                     <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="#853bd4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
                         <line x1="12" y1="5" x2="12" y2="19"></line>
