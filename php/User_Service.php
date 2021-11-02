@@ -87,6 +87,17 @@ class User_Service{
         $cmd->execute();
     }
     
+    public function salvarComentario($mensagem, $user_id, $id_anime){
+        $cmd = $this->pdo->prepare("INSERT INTO comentarios VALUES(default, :m, :u, :i);");
+        $cmd->bindValue(":m", $mensagem);
+        $cmd->bindValue(":u", $user_id);
+        $cmd->bindValue(":i", $id_anime);
+        $cmd->execute();
+    }
+    public function buscarComentario($animeId){
+        $cmd = $this->pdo->prepare("SELECT mensagem FROM comentarios WHERE anime_id = :id;");
+        $cmd->bindValue(":id", anime_id);
+    }
 }
 
 

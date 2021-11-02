@@ -99,12 +99,18 @@ session_start();
             <div class="borderbottom-purple bordertop-purple">
                 <p class="text-center text-light font-weight-bold display-5 text-uppercase">comentário</p>
             </div>
-            <form class="comentario p-5">
-                <input class="border-purple mb-4 p-2 bg-black" type="text" id="autor" name="autor" placeholder="Nome">
+            <form class="comentario p-5" method="POST" action="php/User_Controller.php">
                 <textarea class="border-purple mb-4 p-2 bg-black" name="comentario" id="comentario" cols="45" rows="8" placeholder="Digite seu comentário"></textarea>
-                <input class="btn-enviar bg-black border-purple py-2 mt-1"type="submit">
+                <input class='input-adicionar-anime text-light bg-black border-green' type='hidden' name='id_anime' <?php echo "value='$id_anime'"?> >
+                <!--<input name="id_anime" type="hidden" value="?>">-->
+                <input name="btn-comentar" class="btn-enviar bg-black border-purple py-2 mt-1"type="submit">
             </form>
             <!--COMENTARIO (FIM)-->
+            <!--COMENTARIOS (INICIO)-->
+            <div class="border-purple">
+                
+            </div>
+            <!--COMENTARIOS (FIM)-->
             <!--ANIMES (INICIO)-->
             <div class="borderbottom-purple bordertop-purple">
                 <p class="text-center text-light font-weight-bold display-5 text-uppercase">animes</p>
