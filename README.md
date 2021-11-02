@@ -40,10 +40,9 @@ adm boolean not null,
 img_user varchar(120)
 )default charset = utf8;
 
-insert into users values (default,"Rafas","fael890@gmail.com", md5(5678),  "2004-09-25", true, "");
+insert into users values (default,"Admin","admin@stranimes.com", md5(5678),  "2021-12-03", true, "");
 
 /*Leitura da tabela*/
-SELECT * FROM animes;
 
 SELECT * FROM users;
 ~~~
