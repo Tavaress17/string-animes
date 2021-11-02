@@ -20,6 +20,7 @@
             integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <!--CSS, Icone e Titulo da Aba-->
         <link rel="stylesheet" href="./css/style.css">
+        <link rel="stylesheet" href="./css/sendImageButton_perfil.css">
         <link rel="icon" href="./img/icon-index.png">
         <title>STRING Animes</title>
     </head>
@@ -100,7 +101,7 @@
             ?>
             
             <div class="d-flex justify-content-center">
-                <section class="content-profile d-flex flex-column borderx-purple p-5">
+                <section class="content-profile d-flex flex-column borderx-purple py-5">
                     <article class="d-flex flex-column user">
                         <div class="img-profile p-1 border-purple">      
                         <?php
@@ -115,7 +116,7 @@
                     </article>
                     <div class="d-flex justify-content-center">
                         <article class="informacoes" id="informacoes">
-                            <p><span>Nome:</span><?php echo "$nome"; ?> </p>
+                            <p><span>Nome: </span><?php echo "$nome"; ?> </p>
                             <p><span>E-mail:</span> <?php echo "$email"; ?></p>
                             <p><span>Data de Nascimento:</span> <?php echo "$data_nasc"; ?></p>
                         </article>
@@ -124,12 +125,12 @@
                         <div class='btn-group'>
                             <a href="perfil_template.php?usuario=<?php echo "$id"; ?>" class='btn bg-black border-purple text-purple font-weight-bold btn-editar-profile' name="usuario">Editar</a>
                             <a href="./php/logout.php" class='btn bg-black border-purple text-purple font-weight-bold btn-logout' name="user_quit">Logout</a>
-                            <a href="perfil_template.php?encerrar=<?php echo "$id"; ?>" class='btn bg-black border-purple text-purple font-weight-bold btn-editar-profile' name="encerrar_conta">Encerrar</a>
+                            <a href="perfil_template.php?encerrar=<?php echo "$id"; ?>" class='btn bg-black border-purple text-purple font-weight-bold btn-excluirConta' name="encerrar_conta">Excluir Conta</a>
                         </div>
                     </div>
                 </section>
                 
-                <section class="atualizar-cadastro" id="att-cadastro">
+                <section class="atualizar-cadastro flex-column p-5" id="att-cadastro">
                     <h1 class="m-3 text-center text-purple">Alterar Dados</h1>
                     <div class="d-flex justify-content-center mb-5">
                         <form method="POST" action="./php/User_Controller.php" enctype="multipart/form-data" style="width: 500px;">
@@ -149,9 +150,10 @@
                             </div>
                             <div class="form-outline mb-4">
                                 <label class="form-label text-light" for="imagem">Imagem:</label>
+                                <br>
                                 <input type="file" name="imagem" />  
                             </div>
-                            <button type="submit" name="btn-atualizar" class="btn btn-entrar text-white bg-black border-purple btn-block">Atualizar</button>
+                            <button type="submit" name="btn-atualizar" class="btn btn-atualizar bg-black text-purple border-purple btn-block">Atualizar</button>
                         </form>
                     </div> 
                 </section>

@@ -118,6 +118,15 @@ body{background-color: black;}
 .btn-entrar:hover{
     background-color: #853bd4;
 }
+
+.btn-atualizar{
+    transition: 0.3s;
+}
+
+.btn-atualizar:hover{
+    color: #2BFF67;
+    border: #2BFF67 solid 2px;
+}
 /*NAVBAR span name: String Animes*/
 #string-span{
     color: #2BFF67;
@@ -234,6 +243,8 @@ body{background-color: black;}
 
 .submit-adicionar-anime:hover{padding: 8px;background-color: #853bd4;color: white;}
 
+.paginacao-stroke:hover{stroke: #2BFF67;}
+
 /*---------------------------------------------------------------------------------------*/
 
 /*PAGINA ANIMES_TEMPLATE*/
@@ -294,7 +305,7 @@ body{background-color: black;}
 
 .image-anime-template{width: 100%;height:290px;object-fit:cover;}
 
-/*PERFIL*/
+/*Tela Perfil*/
 
 .content-profile{width: 45%;}
 
@@ -311,11 +322,15 @@ body{background-color: black;}
 
 .btn-editar-profile{width: 80px;}
 
-.btn-editar-profile:hover{background-color: #2BFF67; border: 2px solid white; color: black;}
+.btn-editar-profile:hover{background-color: #2BFF67; border: 2px solid white; color: white;}
 
 .btn-logout{width: 80px;}
 
 .btn-logout:hover{background-color: red; border: 2px solid white; color: white;}
+
+.btn-excluirConta{width: 130px;}
+
+.btn-excluirConta:hover{background-color: rgb(13, 9, 32); border: 2px solid #2BFF67; color: #2BFF67;}
 
 .informacoes{
     margin-top: 35px;
@@ -329,13 +344,19 @@ body{background-color: black;}
 
 @media (min-width: 200px){
     .content-profile{width: 90%;}
+    
 }
 @media (min-width: 405px){
     .content-profile{width: 70%;}
+    
 }
 @media (min-width: 805px){
     .content-profile{width: 50%;}
+    
+
 }
 @media (min-width: 1025px){
     .content-profile{width: 50%;}
 }
+
+.teste-bat{display: inline-block;}

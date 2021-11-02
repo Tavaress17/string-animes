@@ -18,7 +18,7 @@ if(isset($_POST['btn-cadastro-anime'])) {// VERIFICA SE A PESSOA CLICKOU PARA CA
     
     //VERIFICA SE TODOS OS CAMPOS FORAM PREENCHIDOS
     if (!empty($nomeAnime) && !empty($sinopse) && !empty($genero) && !empty($dataLancamento) && !empty($statusLancamento) && !empty($animeImagem)&& !empty($imagem)) {
-       $resp = $anime_service->buscarAnime($nomeAnime);
+        $resp = $anime_service->buscarAnime($nomeAnime);
         if(!empty($resp)){
             echo " ANIME JÁ CADASTRADO ";
         }else{
@@ -76,7 +76,7 @@ if(isset($_POST['btn-editar-anime'])){
                 $dimensoes = getimagesize($imagem["tmp_name"]);
                 
                 if(!preg_match("/^image\/(jpeg|png)$/", $imagem["type"])){//VERIFICA SE O ARQUIVO É UMA IMAGEM
-                   echo "Isso não é uma imagem.";
+                    echo "Isso não é uma imagem.";
                 }else{
                     // VERIFICA SE AS DIMENSÕES SÃO ACEITAS
                     if($dimensoes[0] > $largura || $dimensoes[1] > $altura) {
