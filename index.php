@@ -13,8 +13,11 @@ session_start();
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <!--CSS, Icone e Titulo da Aba-->
         <link rel="stylesheet" href="./css/style.css">
+        <link rel="stylesheet" href="./css/sendImageButton_index.css">
         <link rel="icon" href="./img/icon-index.png">
         <title>STRING Animes</title>
+        <!--Js-->
+        <script type="text/javascript" src="js/sendImage.js"></script>
     </head>
     <body>
         <header>
@@ -110,48 +113,63 @@ session_start();
                 <div class="p-0">
                     <div class="text-center text-light">
                         <form method="post" action="./php/Animes_Controller.php" enctype="multipart/form-data">
-                            <label for="nomeAnime">Nome do Anime:</label>
-                            <input class="input-adicionar-anime text-light bg-black border-green" type="text" name="nomeAnime" id="nomeAnime" placeholder="Nome do Anime" value="<?php if(isset($res)){echo $res['nomeAnime'];} ?>">
-                            <label for="sinopse">Sinopse:</label>
-                            <input class="input-adicionar-anime text-light bg-black border-green" type="text" name="sinopse" id="sinopse" placeholder="Sinopse" value="<?php if(isset($res)){echo $res['sinopse'];} ?>">
-                            <label for="genero">Gênero:</label>
-                            <div class="d-flex justify-content-center">
-                                <select class="select-adicionar-anime text-light bg-black border-green" name="genero" id="genero">
-                                    <option class="option-adicionar-anime" value="Comedia" <?php if(isset($res) && $res['genero'] == 'Comedia'){echo "selected = 'SELECTED'" ;} ?>>Comédia</option>
-                                    <option class="option-adicionar-anime" value="Esportes" <?php if(isset($res) && $res['genero'] == 'Esportes'){echo "selected = 'SELECTED'" ;} ?>>Esportes</option>
-                                    <option class="option-adicionar-anime" value="Fantasia" <?php if(isset($res) && $res['genero'] == 'Fantasia'){echo "selected = 'SELECTED'" ;} ?>>Fantasia</option>
-                                    <option class="option-adicionar-anime" value="Scifi" <?php if(isset($res) && $res['genero'] == 'Scifi'){echo "selected = 'SELECTED'" ;} ?>>Ficção Científica</option>
-                                    <option class="option-adicionar-anime" value="Isekai"> <?php if(isset($res) && $res['genero'] == 'Isekai'){echo "selected = 'SELECTED'" ;} ?>Isekai</option>
-                                    <option class="option-adicionar-anime" value="Romance" <?php if(isset($res) && $res['genero'] == 'Romance'){echo "selected = 'SELECTED'" ;} ?>>Romance</option>
-                                    <option class="option-adicionar-anime" value="Shounen" <?php if(isset($res) && $res['genero'] == 'Shounen'){echo "selected = 'SELECTED'" ;} ?>>Shounen</option>
-                                    <option class="option-adicionar-anime" value="Slice of Life" <?php if(isset($res) && $res['genero'] == 'Slice of Life'){echo "selected = 'SELECTED'" ;} ?>>Slice Life</option>
-                                    <option class="option-adicionar-anime" value="Suspense" <?php if(isset($res) && $res['genero'] == 'Suspense'){echo "selected = 'SELECTED'" ;} ?>>Suspense</option>
-                                    <option class="option-adicionar-anime" value="Terror" <?php if(isset($res) && $res['genero'] == 'Terror'){echo "selected = 'SELECTED'" ;} ?>>Terror</option>
-                                </select>
+                            <div class="form-outline">
+                                <label for="nomeAnime">Nome do Anime:</label>
+                                <input class="input-adicionar-anime text-light bg-black border-green" type="text" name="nomeAnime" id="nomeAnime" placeholder="Nome do Anime" value="<?php if(isset($res)){echo $res['nomeAnime'];} ?>">
                             </div>
-                            <label for="dataLancamento">Data de Lançamento:</label>
-                            <input class="input-adicionar-anime text-light bg-black border-green" type="text" name="dataLancamento" id="dataLancamento" placeholder="Ano de Lançamento" value="<?php if(isset($res)){echo $res['dataLancamento'];} ?>">
-                            <label for="statusLancamento">Status:</label>
-                            <div class="d-flex justify-content-center">
-                                <select class="select-adicionar-anime text-light bg-black border-green" name="statusLancamento" id="statusLancamento" placeholder="Status de Lançamento">
-                                    <option class="option-adicionar-anime" value="Concluido" <?php if(isset($res) && $res['statusLancamento'] == 'Concluido'){echo "selected = 'SELECTED'" ;} ?>>Concluido</option>
-                                    <option class="option-adicionar-anime" value="Em lançamento" <?php if(isset($res) && $res['statusLancamento'] == 'Em lançamento'){echo "selected = 'SELECTED'" ;} ?>>Em lançamento</option>
-                                </select>
+                            <div class="form-outline">
+                                <label for="sinopse">Sinopse:</label>
+                                <br>
+                                <input class="input-adicionar-anime text-light bg-black border-green" type="text" name="sinopse" id="sinopse" placeholder="Sinopse" value="<?php if(isset($res)){echo $res['sinopse'];} ?>">
                             </div>
-                            <?php  
-                                if(!isset($res)){
-                                    echo '
-                                    <label for="animeImagem">Nome para o path da imagem:</label>
-                                    <input class="input-adicionar-anime text-light bg-black border-green" type="text" name="animeImagem" id="animeImagem" placeholder="Nome minúsculo. Ex: naruto">
-                                    <label for="imagem">Imagem:</label>
-                                    ';
-                                }else{
-                                    echo " <label>Imagem cadastrada: ".$res['animeImagem']."</label><br>"
-                                            . "<label for='imagem'>Imagem:</label>";
-                                    echo "<input class='input-adicionar-anime text-light bg-black border-green' type='hidden' name='id_atualizar' value='$id_anime'>";
-                                }
-                            ?>
-                            <input type="file" name="imagem"/>
+                            <div class="form-outline">
+                                <label for="genero">Gênero:</label>
+                                <div class="d-flex justify-content-center">
+                                    <select class="select-adicionar-anime text-light bg-black border-green" name="genero" id="genero">
+                                        <option class="option-adicionar-anime" value="Comedia" <?php if(isset($res) && $res['genero'] == 'Comedia'){echo "selected = 'SELECTED'" ;} ?>>Comédia</option>
+                                        <option class="option-adicionar-anime" value="Esportes" <?php if(isset($res) && $res['genero'] == 'Esportes'){echo "selected = 'SELECTED'" ;} ?>>Esportes</option>
+                                        <option class="option-adicionar-anime" value="Fantasia" <?php if(isset($res) && $res['genero'] == 'Fantasia'){echo "selected = 'SELECTED'" ;} ?>>Fantasia</option>
+                                        <option class="option-adicionar-anime" value="Scifi" <?php if(isset($res) && $res['genero'] == 'Scifi'){echo "selected = 'SELECTED'" ;} ?>>Ficção Científica</option>
+                                        <option class="option-adicionar-anime" value="Isekai"> <?php if(isset($res) && $res['genero'] == 'Isekai'){echo "selected = 'SELECTED'" ;} ?>Isekai</option>
+                                        <option class="option-adicionar-anime" value="Romance" <?php if(isset($res) && $res['genero'] == 'Romance'){echo "selected = 'SELECTED'" ;} ?>>Romance</option>
+                                        <option class="option-adicionar-anime" value="Shounen" <?php if(isset($res) && $res['genero'] == 'Shounen'){echo "selected = 'SELECTED'" ;} ?>>Shounen</option>
+                                        <option class="option-adicionar-anime" value="Slice of Life" <?php if(isset($res) && $res['genero'] == 'Slice of Life'){echo "selected = 'SELECTED'" ;} ?>>Slice Life</option>
+                                        <option class="option-adicionar-anime" value="Suspense" <?php if(isset($res) && $res['genero'] == 'Suspense'){echo "selected = 'SELECTED'" ;} ?>>Suspense</option>
+                                        <option class="option-adicionar-anime" value="Terror" <?php if(isset($res) && $res['genero'] == 'Terror'){echo "selected = 'SELECTED'" ;} ?>>Terror</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-outline">
+                                <label for="dataLancamento">Data de Lançamento:</label>
+                                <input class="input-adicionar-anime text-light bg-black border-green" type="text" name="dataLancamento" id="dataLancamento" placeholder="Ano de Lançamento" value="<?php if(isset($res)){echo $res['dataLancamento'];} ?>">
+                            </div>
+                            <div class="form-outline">
+                                <label for="statusLancamento">Status:</label>
+                                <div class="d-flex justify-content-center">
+                                    <select class="select-adicionar-anime text-light bg-black border-green" name="statusLancamento" id="statusLancamento" placeholder="Status de Lançamento">
+                                        <option class="option-adicionar-anime" value="Concluido" <?php if(isset($res) && $res['statusLancamento'] == 'Concluido'){echo "selected = 'SELECTED'" ;} ?>>Concluido</option>
+                                        <option class="option-adicionar-anime" value="Em lançamento" <?php if(isset($res) && $res['statusLancamento'] == 'Em lançamento'){echo "selected = 'SELECTED'" ;} ?>>Em lançamento</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-outline">
+                                <?php  
+                                    if(!isset($res)){
+                                        echo '
+                                        <label for="animeImagem">Nome para o path da imagem:</label>
+                                        <input class="input-adicionar-anime text-light bg-black border-green" type="text" name="animeImagem" id="animeImagem" placeholder="Nome minúsculo. Ex: naruto">
+                                        <br>
+                                        <label for="imagem">Imagem:</label>
+                                        <br>
+                                        ';
+                                    }else{
+                                        echo "<label>Imagem cadastrada: ".$res['animeImagem']."</label><br>"
+                                                ."<label for='imagem'>Imagem:</label>";
+                                        echo "<input class='input-adicionar-anime text-light bg-black border-green' type='hidden' name='id_atualizar' value='$id_anime'>";
+                                    }
+                                ?>
+                                <input type="file" id="imagem" name="imagem"/>
+                            </div>
                             <input type="submit" name="<?php if(isset($res)){echo 'btn-editar-anime';}else{echo 'btn-cadastro-anime';} ?>" value="<?php if(isset($res)){echo 'Atualizar dados';}else{echo 'Adicionar anime';} ?>" class="submit-adicionar-anime text-black bg-green border-green">
                         </form>
                     </div>

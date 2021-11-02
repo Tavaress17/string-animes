@@ -111,8 +111,8 @@ class Animes_Service{
                         </div>
                         <div id='edit_excluir' class='float-right mt-3'>
                             <div class='btn-group'>
-                                <button type='button' class='btn btn-outline-light btn-editar'><a href='index.php?id_anime=$id_anime' onclick='document.getElementById('adicionarAnime').style.display='none';document.getElementById('formAnime').style.display='block';'>Editar</a></button>
-                                <button type='button' class='btn btn-outline-light btn-excluir' ><a href='index.php?id_excluir=$id_anime'>Excluir</a></button>
+                                <button type='button' class='btn btn-outline-light btn-editar'><a href='index.php?id_anime=$id_anime' class='text-white text-decoration-none' onclick='document.getElementById('adicionarAnime').style.display='none';document.getElementById('formAnime').style.display='block';'>Editar</a></button>
+                                <button type='button' class='btn btn-outline-light btn-excluir' ><a href='index.php?id_excluir=$id_anime' class='text-white text-decoration-none'>Excluir</a></button>
                             </div>
                         </div>
                     </div>

@@ -73,7 +73,7 @@ if(isset($_POST['btn-atualizar'])){//VERIFICA SE CLICOU NO BOTÃO DE ATUALIZAÇ�
                 $dimensoes = getimagesize($imagem["tmp_name"]);
                 
                 if(!preg_match("/^image\/(jpeg|png)$/", $imagem["type"])){//VERIFICA SE O ARQUIVO É UMA IMAGEM
-                   echo "Isso não é uma imagem.";
+                    echo "Isso não é uma imagem.";
                 }else{
                     // VERIFICA SE AS DIMENSÕES SÃO ACEITAS
                     if($dimensoes[0] > $largura || $dimensoes[1] > $altura) {
