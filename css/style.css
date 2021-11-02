@@ -241,7 +241,7 @@ body{background-color: black;}
     transition: 0.5s;
 }
 
-/* .submit-adicionar-anime:hover{padding: 8px;background-color: #853bd4;color: white;} */
+.submit-adicionar-anime:hover{padding: 8px;background-color: #853bd4;color: white;}
 
 .paginacao-stroke:hover{stroke: #2BFF67;}
 
