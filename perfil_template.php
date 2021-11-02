@@ -7,6 +7,36 @@
         header('Location: index.php');
     }
     
+    // ------------------ CARREGA OS DADOS DO USUARIO ------------------------------
+    if(isset($_SESSION['logado'])){//Se o usuário estiver logado, pegue os dados
+        if(isset($_SESSION['user']) && !empty($_SESSION['user'])){
+            $id = $_SESSION['user'];
+            $res = $user_service->buscarUserById($id);
+            $nome = $res['nome'];
+            $email = $res['email'];
+            $data_nasc = $res['data_nasc'];
+            $imagem = $res['img_user'];
+        }else{
+            header('Location: index.php');
+        }
+    }else{
+        header('Location: index.php');
+    }
+    
+    // ------------------ VERIFICA SE DESEJA ENCERRAR CONTA ------------------------------
+    if(isset($_GET['encerrar'])&& !empty($_GET['encerrar'])){
+        $id_end = addslashes($_GET['encerrar']);
+        $resp = $user_service->buscarUserById($id_end);
+        if(!empty($resp)){
+            $user_service->apagarConta($id_end);
+            session_unset();//limpa a sessão
+            session_destroy();//destroi a sessão
+            header('Location: index.php');//redireciona para a index
+        }else{
+            echo "Conta não encontrada";
+        }            
+    }
+    
 ?>
 
 <!DOCTYPE html>
@@ -58,46 +88,20 @@
             </section>
             <!--Banner-->
             <?php
-            if(isset($_SESSION['logado'])){//Se o usuário estiver logado, pegue os dados
-                if(isset($_SESSION['user']) && !empty($_SESSION['user'])){
-                    $id = $_SESSION['user'];
-                    $res = $user_service->buscarUserById($id);
-                    $nome = $res['nome'];
-                    $email = $res['email'];
-                    $data_nasc = $res['data_nasc'];
-                    $imagem = $res['img_user'];
+                if(isset($_GET['usuario'])&& !empty($_GET['usuario'])){//VERIFICA SE CLICOU NO EDITAR
+                    echo "<style>
+                        .content-profile{display: none;}
+
+                        .atualizar-cadastro{display: flex;}
+                    </style>";
                 }else{
-                    header('Location: index.php');
+                    echo "<style>
+                        .content-profile{display: flex;}
+
+                        .atualizar-cadastro{display: none;}
+                    </style>";
                 }
-            }else{
-                header('Location: index.php');
-            }
             
-            if(isset($_GET['usuario'])&& !empty($_GET['usuario'])){//VERIFICA SE CLICOU NO EDITAR
-                echo "<style>
-                    .content-profile{display: none;}
-                        
-                    .atualizar-cadastro{display: flex;}
-                </style>";
-            }else{
-                echo "<style>
-                    .content-profile{display: flex;}
-                        
-                    .atualizar-cadastro{display: none;}
-                </style>";
-            }
-            
-            if(isset($_GET['encerrar'])&& !empty($_GET['encerrar'])){//VERIFICA SE DESEJA ENCERRAR CONTA
-                $id_end = $_GET['encerrar'];
-                $resp = $user_service->buscarUserById($id_end);
-                if(!empty($resp)){
-                    $user_service->apagarConta($id_end);
-                    header('Location: ./php/logout.php');
-                }else{
-                    echo "Conta não encontrada";
-                }
-                
-            }
             ?>
             
             <div class="d-flex justify-content-center">
@@ -106,7 +110,7 @@
                         <div class="img-profile p-1 border-purple">      
                         <?php
                             if(empty($imagem)){
-                                echo "<img src='./img/img_profile/tsuki.jpg' style='object-fit: cover;'/>";
+                                echo "<img src='./img/img_profile/padrao.jpg' style='object-fit: cover;'/>";
                             }else{
                                 echo "<img src='./img/img_profile/".$imagem."' style='object-fit: cover;'/>";
                             }

@@ -189,6 +189,12 @@ session_start();
             <!--Fim Cartão-->
         </div>
         <?php
+            if (isset($_GET['pagina'])) {
+                $pagina = addslashes($_GET['pagina']);
+                $pg = $pagina;
+            }else {
+                $pg = 1;
+            }
             $anime_service->paginacao(9,$pg);
         ?>
         <!--Footer-->

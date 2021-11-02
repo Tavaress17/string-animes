@@ -124,7 +124,11 @@ class Animes_Service{
     public function paginacao($reg_pag, $pg){
         $total = $this->pdo->prepare("SELECT * FROM animes;");
         $total->execute();
-        $tp = $total->rowCount() / $reg_pag;
+        if($total->rowCount() == 0){
+            $tp = 1 / $reg_pag;
+        }else{
+           $tp = $total->rowCount() / $reg_pag;
+        }
         $tp = ceil($tp);
         
         echo "<div class='d-flex justify-content-center mb-4'>";

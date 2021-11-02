@@ -2,6 +2,11 @@
 require_once './php/Animes_Service.php';
 $anime_service = new Animes_Service("string_animes", "localhost", "root", "");
 session_start();
+    
+    if(!isset($_GET['anime']) || empty($_GET['anime'])){
+        header('Location: index.php');
+    }
+    
 ?>
 
 <!DOCTYPE html>
@@ -53,15 +58,13 @@ session_start();
             </section>
             <!--Banner fim-->
             <?php
-                if(isset($_GET['anime']) && !empty($_GET['anime'])){
+                if(isset($_GET['anime']) || !empty($_GET['anime'])){
                     $id_anime = addslashes($_GET['anime']);
                     if(!empty($anime_service->buscarAnimeById($id_anime))){
                         $res = $anime_service->buscarAnimeById($id_anime);
                     }else{
                         header('Location: index.php');
                     }
-                }else{
-                    header('Location: index.php');
                 }
             ?>
             
@@ -71,7 +74,7 @@ session_start();
             </div>
             <div class="container-anime-template">
                 <div class="grid-descricao p-5">
-                    <img src="../string-animes/img/animes-banner/<?php echo $res['animeImagem']; ?>" alt="<?php echo $res['nomeAnime']; ?>"
+                    <img src="./img/animes-banner/<?php echo $res['animeImagem']; ?>" alt="<?php echo $res['nomeAnime']; ?>"
                         class="image-anime-template border-purple p-2" style='object-fit: cover;'>
                 </div>
                 <div class="descricao-template font-anime-template py-5 pl-5">
