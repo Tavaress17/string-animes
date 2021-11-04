@@ -1,5 +1,7 @@
 <?php
 require_once './php/Animes_Service.php';
+require_once './php/User_Service.php';
+$user_service = new User_Service("string_animes", "localhost", "root", "");
 $anime_service = new Animes_Service("string_animes", "localhost", "root", "");
 session_start();
     
@@ -96,20 +98,40 @@ session_start();
             </div>
             <!--SINOPSE (FIM)-->
             <!--COMENTARIO (INICIO)-->
-            <div class="borderbottom-purple bordertop-purple">
-                <p class="text-center text-light font-weight-bold display-5 text-uppercase">comentário</p>
+            <div>
+                <div class="borderbottom-purple bordertop-purple">
+                    <p class="text-center text-light font-weight-bold display-5 text-uppercase">comentário</p>
+                </div>
+                <form class="comentario p-5" method="POST" action="php/User_Controller.php">
+                    <textarea class="border-purple mb-4 p-2 bg-black" name="comentario" id="comentario" cols="45" rows="8" placeholder="Digite seu comentário"></textarea>
+                    <input class='input-adicionar-anime text-light bg-black border-green' type='hidden' name='id_anime' <?php echo "value='$id_anime'"?> >
+                    <!--<input name="id_anime" type="hidden" value="?>">-->
+                    <input name="btn-comentar" class="btn-enviar bg-black border-purple py-2 mt-1"type="submit">
+                </form>
             </div>
-            <form class="comentario p-5" method="POST" action="php/User_Controller.php">
-                <textarea class="border-purple mb-4 p-2 bg-black" name="comentario" id="comentario" cols="45" rows="8" placeholder="Digite seu comentário"></textarea>
-                <input class='input-adicionar-anime text-light bg-black border-green' type='hidden' name='id_anime' <?php echo "value='$id_anime'"?> >
-                <!--<input name="id_anime" type="hidden" value="?>">-->
-                <input name="btn-comentar" class="btn-enviar bg-black border-purple py-2 mt-1"type="submit">
-            </form>
             <!--COMENTARIO (FIM)-->
             <!--COMENTARIOS (INICIO)-->
-            <div class="border-purple">
-                
+            <?php
+                $anime_id = addslashes($_GET['anime']);
+                $user_service->buscarComentario($anime_id);
+            ?>
+            <!--<div class="borderbottom-purple">
             </div>
+            <div class="container-comentario-template">
+                <div class="grid-comentario p-5">
+                    <img src="./img/animes-banner/"
+                        class="image-comentario-template border-purple p-2" style='object-fit: cover;'>
+                </div>
+                <div class="comentario-descricao font-anime-template py-5 pl-5">
+                    <p class="text-green">Nome: <span class="text-light">Teste Almeida</span></p>
+                    <p class="text-green">Horário: <span class="text-light">13:30</span></p>      
+                </div>
+            </div>
+            <div class="font-anime-template comentarios px-5 mb-5">
+                <p class="text-green">
+                    {Comentario}
+                </p> 
+            </div>-->
             <!--COMENTARIOS (FIM)-->
             <!--ANIMES (INICIO)-->
             <div class="borderbottom-purple bordertop-purple">

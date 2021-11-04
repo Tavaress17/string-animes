@@ -94,9 +94,48 @@ class User_Service{
         $cmd->bindValue(":i", $id_anime);
         $cmd->execute();
     }
-    public function buscarComentario($animeId){
+    public function buscarComentario($anime_id){
         $cmd = $this->pdo->prepare("SELECT mensagem FROM comentarios WHERE anime_id = :id;");
-        $cmd->bindValue(":id", anime_id);
+        $cmd->bindValue(":id", $anime_id);
+        $cmd->execute();
+
+        if ($cmd->rowCount() > 0) {//Enquanto tiverem linhas na tabela
+            foreach ($cmd as $res) {
+                $mensagem = $res['mensagem'];
+                /*$horario = $res['horario'];*/
+
+                $id = $_SESSION['user'];
+                $sql = $this->pdo->prepare("SELECT nome, img_user FROM users WHERE id = $id");
+                $sql->execute();
+                $resp = $sql->fetch(PDO::FETCH_ASSOC);
+                $img_user = $resp['img_user'];
+                $nome_user = $resp['nome'];
+
+                echo "
+                <div class='borderbottom-purple'>
+                </div>
+                <div class='container-comentario-template'>
+                    <div class='grid-comentario p-5'>";
+                        if(empty($img_user)){
+                            echo "<img src='./img/img_profile/padrao.jpg' alt=''
+                            class='image-comentario-template border-purple p-2' style='object-fit: cover;'>";
+                        }else{
+                            echo "<img src='./img/img_profile/$img_user' alt=''
+                            class='image-comentario-template border-purple p-2' style='object-fit: cover;'>";
+                        }
+                    echo"</div>
+                    <div class='comentario-descricao font-anime-template py-5 pl-5'>
+                        <p class='text-green'><span class='text-light'>$nome_user</span></p>
+                        <p class='text-green'><span class='text-light'>13:00</span></p>      
+                    </div>
+                </div>
+                <div class='font-anime-template comentarios px-5 mb-5'>
+                    <p class='text-green'>
+                        $mensagem
+                    </p> 
+                </div>";
+            }
+        }
     }
 }
 

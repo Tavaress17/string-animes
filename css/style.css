@@ -258,7 +258,37 @@ body{background-color: black;}
 
 .cardRecomendados:hover{cursor: pointer; background-color: #150a1a;}
 
+.descricao-template{max-width:1200px; margin:auto;}
+
+.sinopse-anime{max-width: 1200px;margin:auto;}
+
+.image-anime-template{width: 100%;height:290px;object-fit:cover;}
+
+/*Comentarios*/
+.container-comentario-template{
+    margin:auto;
+    max-width:1200px;
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+.grid-comentario{text-align: center;padding:15px 15px 40px;}
+
+.cardRecomendados:hover{cursor: pointer; background-color: #150a1a;}
+
+.descricao-template{max-width:1200px; margin:auto;}
+
+.comentarios{max-width: 1200px;margin:auto;}
+
+.image-comentario-template{width: 200px;height:200px;object-fit:cover;border-radius: 200px;}
+
+/*Comentario*/
 .comentario{margin:auto;display:grid;max-width:1200px;}
+
+.comentario textarea:focus{border: #2BFF67 2px solid;}
+
+.btn-enviar{color: #853bd4;transition: 0.3s;cursor: pointer;}
+
+.btn-enviar:hover{background-color: #853bd4; color: white;}
 
 .comentario input{
     color: white; 
@@ -266,6 +296,7 @@ body{background-color: black;}
     appearance: none; 
     transition: 0.5s;
 }
+
 
 .comentario input:focus{border: #2BFF67 2px solid;}
 
@@ -291,19 +322,8 @@ body{background-color: black;}
     border: #2BFF67 2px solid;   
 }
 
-.comentario textarea:focus{border: #2BFF67 2px solid;}
-
-.btn-enviar{color: #853bd4;transition: 0.3s;cursor: pointer;}
-
-.btn-enviar:hover{background-color: #853bd4; color: white;}
-
-.descricao-template{max-width:1200px; margin:auto;}
-
 .font-anime-template{font-size: 28px;}
 
-.sinopse-anime{max-width: 1200px;margin:auto;}
-
-.image-anime-template{width: 100%;height:290px;object-fit:cover;}
 
 /*Tela Perfil*/
 
