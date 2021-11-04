@@ -122,7 +122,7 @@ class User_Service{
                             }
                         echo "
                         </div>
-                        <div class='comentario-descricao font-anime-template py-5'>
+                        <div class='comentario-descricao font-anime-template pl-3 py-5'>
                             <p class='text-purple'>$nome_user<span class='pl-3 text-green span-horario'>13:00</span></p>
                             <p class='text-light fulljustify'>
                                 $mensagem
