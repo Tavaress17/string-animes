@@ -50,6 +50,22 @@ if(isset($_POST['btn-login'])){
         echo "PREENCHA TODOS OS CAMPOS";
     }
 }
+//CLICOU NO BOTÃO DE comentario
+if(isset($_POST['btn-comentar'])){
+    $mensagem = addslashes($_POST['comentario']);
+    $id_anime = addslashes($_POST['id_anime']);
+    
+    if(!isset($_SESSION['user'])||empty($_SESSION['user'])){
+        echo "ALGO DE ERRADO NÃO CERTO";
+    }else{
+        $user_id = $_SESSION['user'];
+        if(empty($mensagem)){
+            echo "ESCREVA ALGUM COMENTÁRIO";
+        }else{
+            $user_service->salvarComentario($mensagem, $user_id, $id_anime);
+        }
+    }
+}
 
 if(isset($_POST['btn-atualizar'])){//VERIFICA SE CLICOU NO BOTÃO DE ATUALIZAÇÃO
     $nome = addslashes($_POST['nome']);

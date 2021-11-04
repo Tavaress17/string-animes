@@ -127,7 +127,7 @@ class Animes_Service{
         if($total->rowCount() == 0){
             $tp = 1 / $reg_pag;
         }else{
-           $tp = $total->rowCount() / $reg_pag;
+            $tp = $total->rowCount() / $reg_pag;
         }
         $tp = ceil($tp);
         
