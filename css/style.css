@@ -265,13 +265,17 @@ body{background-color: black;}
 .image-anime-template{width: 100%;height:290px;object-fit:cover;}
 
 /*Comentarios*/
-.container-comentario-template{
-    margin:auto;
-    max-width:1200px;
-    display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+.span-horario{
+    font-size: 18px;
 }
-.grid-comentario{text-align: center;padding:15px 15px 40px;}
+
+.container-comentario-template{
+    display:grid;
+    margin: auto;
+    grid-template-columns: 0.5fr 2fr;
+    grid-template-columns: repeat(minmax(300px, 1fr));
+}
 
 .cardRecomendados:hover{cursor: pointer; background-color: #150a1a;}
 
