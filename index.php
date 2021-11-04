@@ -16,8 +16,6 @@ session_start();
         <link rel="stylesheet" href="./css/sendImageButton_index.css">
         <link rel="icon" href="./img/icon-index.png">
         <title>STRING Animes</title>
-        <!--Js-->
-        <script type="text/javascript" src="js/sendImage.js"></script>
     </head>
     <body>
         <header>

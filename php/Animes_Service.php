@@ -99,17 +99,21 @@ class Animes_Service{
                 $sinopse = $res['sinopse'];
                 $animeImagem = $res['animeImagem'];
                 echo "
-                <div class='card bg-black border-purple pb-4 cursorh-pointer'>
+                <div class='card bg-black border-purple pb-0 cursorh-pointer'>
                     <img src='img/animes-banner/$animeImagem' class='anime-image'>
-                    <div class='conteudo pb-5'>
+                    <div class='conteudo pb-3'>
                         <h2 class='text-center text-light my-2'>$nomeAnime</h2>
                         <div class='card-sinopse'>
                             <p class='text-justify text-light'>
                                 $sinopse
                             </p>
-                            <a href='animes_template.php?anime=$id_anime'> Mais... </a>
                         </div>
-                        <div id='edit_excluir' class='float-right mt-3'>
+                        <a href='animes_template.php?anime=$id_anime' class='text-decoration-none'>  
+                            <div class='d-flex justify-content-center mt-3 btn btn-outline-light border-purple text-green font-weight-bold information-link'>
+                                Ver mais informações
+                            </div>
+                        </a>
+                        <div id='edit_excluir' class='float-right pt-4'>
                             <div class='btn-group'>
                                 <button type='button' class='btn btn-outline-light btn-editar'><a href='index.php?id_anime=$id_anime' class='text-white text-decoration-none' onclick='document.getElementById('adicionarAnime').style.display='none';document.getElementById('formAnime').style.display='block';'>Editar</a></button>
                                 <button type='button' class='btn btn-outline-light btn-excluir' ><a href='index.php?id_excluir=$id_anime' class='text-white text-decoration-none'>Excluir</a></button>

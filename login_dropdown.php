@@ -10,7 +10,6 @@
             echo '<a href="#" data-toggle="dropdown" aria-expanded="false" class="loginBtn p-0 nav-link dropdown">';
         }
     ?>
-    
         <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none"
             stroke="#7031B3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
             class="loginIcon">
@@ -32,15 +31,6 @@
             </div>
             <div class="row mb-4">
                 <!--Checkbox-->
-                <div class="col d-flex justify-content-center">
-                    <div class="form-check">
-                        <input class="form-check-input checkboxCustom" type="checkbox" value=""id="lembrarLogin" />
-                        <label class="pl-2 form-check-label text-light" for="lembrarLogin">Lembrar-se de mim</label>
-                    </div>
-                </div>
-                <div class="col">
-                    <a class="text-green" href="#!">Esqueceu a senha?</a>
-                </div>
             </div>
             <button type="submit" name="btn-login" class="btn btn-entrar text-white bg-black border-purple btn-block">Entrar</button>
         </form>

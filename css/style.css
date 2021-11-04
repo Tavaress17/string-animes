@@ -161,6 +161,8 @@ body{background-color: black;}
 
 .card-sinopse a{position: absolute;color: #2BFF67;}
 
+.information-link:hover{color: #853bd4;text-decoration: none;}
+
 .btn-editar{transition: 0.4s;width: 80px;}
 
 .btn-editar:hover{background-color: #2BFF67;color: black;font-weight: bolder;}
