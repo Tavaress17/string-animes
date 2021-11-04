@@ -20,29 +20,38 @@ CREATE DATABASE IF NOT EXISTS string_animes;/*Criando o banco de dados*/
 USE string_animes;/*Usar o banco de dados criado*/
 
 /*Criação da tabela*/
-CREATE TABLE IF NOT EXISTS animes(
-idAnime int primary key auto_increment,
-nomeAnime varchar(255) not null,
-sinopse varchar(999) not null,
-genero varchar(60) not null,
-dataLancamento int not null,
-statusLancamento varchar (60) not null,
-animeImagem varchar (255) not null
+CREATE TABLE IF NOT EXISTS users(
+    id int primary key auto_increment,
+    nome varchar(50) not null,
+    email varchar(100) not null,
+    senha varchar(32) not null,
+    data_nasc date not null,
+    adm boolean not null,
+    img_user varchar(120)
 )default charset = utf8;
 
-/*Inserção de teste na tabela.*/
-INSERT INTO animes (nomeAnime, sinopse, genero, dataLancamento, statusLancamento, animeImagem) VALUES 
-(
-'Naruto',
-'Naruto é um jovem órfão habitante da Vila da Folha que sonha se tornar o quinto Hokage, 
-o maior guerreiro e governante da vila. Agora Naruto vai contar com a ajuda dos colegas Sakura e Sasuke e do professor dos três, 
-Kakashi Hatake, para perseguir seu sonho e deter os ninjas que planejam fazer mal á sua cidade.',
-'Shounen',
-'2002',
-'Concluido',
-'naruto'
-);
+CREATE TABLE IF NOT EXISTS animes(
+    idAnime int primary key auto_increment,
+    nomeAnime varchar(255) not null,
+    sinopse varchar(999) not null,
+    genero varchar(60) not null,
+    dataLancamento int not null,
+    statusLancamento varchar (60) not null,
+    animeImagem varchar (255) not null
+)default charset = utf8;
+
+CREATE TABLE IF NOT EXISTS comentarios(
+    idComentario int(11) primary key auto_increment,
+    mensagem varchar(45) ,
+    user_id int(11),
+    anime_id int(11),
+    constraint comentarios_ibfk_1 foreign key(user_id) references users(id),
+    constraint comentarios_ibfk_2 foreign key(anime_id) references animes(idAnime)
+)default charset = utf8;
+
+INSERT INTO users VALUES (default,"Admin","admin@stranimes.com", md5(5678),  "2021-12-03", true, ""); /*Criação padrão de um administrador*/
 
 /*Leitura da tabela*/
-SELECT * FROM animes;
+
+SELECT * FROM users;
 ~~~

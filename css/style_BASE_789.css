@@ -35,8 +35,6 @@ body{background-color: black;}
 
 .bordery-purple{border-top: 2px solid #853bd4; border-bottom: 2px solid #853bd4;}
 
-.borderx-purple{border-right: 2px solid #853bd4; border-left: 2px solid #853bd4;}
-
 .cursorh-pointer:hover{cursor: pointer;}
 
 .cursor-pointer{cursor: pointer;}
@@ -120,15 +118,6 @@ body{background-color: black;}
 .btn-entrar:hover{
     background-color: #853bd4;
 }
-
-.btn-atualizar{
-    transition: 0.3s;
-}
-
-.btn-atualizar:hover{
-    color: #2BFF67;
-    border: #2BFF67 solid 2px;
-}
 /*NAVBAR span name: String Animes*/
 #string-span{
     color: #2BFF67;
@@ -162,8 +151,6 @@ body{background-color: black;}
 }
 
 .card-sinopse a{position: absolute;color: #2BFF67;}
-
-.information-link:hover{color: #853bd4;text-decoration: none;}
 
 .btn-editar{transition: 0.4s;width: 80px;}
 
@@ -247,8 +234,6 @@ body{background-color: black;}
 
 .submit-adicionar-anime:hover{padding: 8px;background-color: #853bd4;color: white;}
 
-.paginacao-stroke:hover{stroke: #2BFF67;}
-
 /*---------------------------------------------------------------------------------------*/
 
 /*PAGINA ANIMES_TEMPLATE*/
@@ -262,41 +247,7 @@ body{background-color: black;}
 
 .cardRecomendados:hover{cursor: pointer; background-color: #150a1a;}
 
-.descricao-template{max-width:1200px; margin:auto;}
-
-.sinopse-anime{max-width: 1200px;margin:auto;}
-
-.image-anime-template{width: 100%;height:290px;object-fit:cover;}
-
-/*Comentarios*/
-
-.span-horario{
-    font-size: 18px;
-}
-
-.container-comentario-template{
-    display:grid;
-    margin: auto;
-    grid-template-columns: 0.5fr 2fr;
-    grid-template-columns: repeat(minmax(300px, 1fr));
-}
-
-.cardRecomendados:hover{cursor: pointer; background-color: #150a1a;}
-
-.descricao-template{max-width:1200px; margin:auto;}
-
-.comentarios{max-width: 1200px;margin:auto;}
-
-.image-comentario-template{width: 200px;height:200px;object-fit:cover;border-radius: 200px;}
-
-/*Comentario*/
 .comentario{margin:auto;display:grid;max-width:1200px;}
-
-.comentario textarea:focus{border: #2BFF67 2px solid;}
-
-.btn-enviar{color: #853bd4;transition: 0.3s;cursor: pointer;}
-
-.btn-enviar:hover{background-color: #853bd4; color: white;}
 
 .comentario input{
     color: white; 
@@ -304,7 +255,6 @@ body{background-color: black;}
     appearance: none; 
     transition: 0.5s;
 }
-
 
 .comentario input:focus{border: #2BFF67 2px solid;}
 
@@ -330,61 +280,16 @@ body{background-color: black;}
     border: #2BFF67 2px solid;   
 }
 
+.comentario textarea:focus{border: #2BFF67 2px solid;}
+
+.btn-enviar{color: #853bd4;transition: 0.3s;cursor: pointer;}
+
+.btn-enviar:hover{background-color: #853bd4; color: white;}
+
+.descricao-template{max-width:1200px; margin:auto;}
+
 .font-anime-template{font-size: 28px;}
 
+.sinopse-anime{max-width: 1200px;margin:auto;}
 
-/*Tela Perfil*/
-
-.content-profile{width: 45%;}
-
-.user{align-items: center;}
-
-.img-profile{border-radius: 130px;width: 260px;height: 260px;}
-
-.img-profile img{
-    width: 100%; 
-    height: 100%; 
-    border-radius: 130px;
-    object-fit: cover;
-}
-
-.btn-editar-profile{width: 80px;}
-
-.btn-editar-profile:hover{background-color: #2BFF67; border: 2px solid white; color: white;}
-
-.btn-logout{width: 80px;}
-
-.btn-logout:hover{background-color: red; border: 2px solid white; color: white;}
-
-.btn-excluirConta{width: 130px;}
-
-.btn-excluirConta:hover{background-color: rgb(13, 9, 32); border: 2px solid #2BFF67; color: #2BFF67;}
-
-.informacoes{
-    margin-top: 35px;
-    text-align: justify;
-    color: white;
-    font-size: 1.1em;
-    width: 60%;
-}
-
-.informacoes span{color: #2BFF67;font-size: 1.2em;}
-
-@media (min-width: 200px){
-    .content-profile{width: 90%;}
-    
-}
-@media (min-width: 405px){
-    .content-profile{width: 70%;}
-    
-}
-@media (min-width: 805px){
-    .content-profile{width: 50%;}
-    
-
-}
-@media (min-width: 1025px){
-    .content-profile{width: 50%;}
-}
-
-.teste-bat{display: inline-block;}
+.image-anime-template{width: 100%;height:290px;object-fit:cover;}

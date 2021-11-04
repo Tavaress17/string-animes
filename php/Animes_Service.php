@@ -1,11 +1,12 @@
 <?php
+
 class Animes_Service{
     
-    private $connection;
+    private $pdo;
     
     public function __construct($dbname, $host, $user, $senha) {//CONSTRUTOR PARA O BANCO DE DADOS
         try{//TRY CATCH PARA TRATAMENTO DE ERROS
-            $this -> connection = new PDO("mysql:dbname=".$dbname.";host=".$host,$user,$senha);//CRIANDO O PDO DO BANCO
+            $this ->pdo= new PDO("mysql:dbname=".$dbname.";host=".$host,$user,$senha);//CRIANDO O PDO DO BANCO
             
         } catch (PDOException $e) {//ERRO DO PDO
             echo "ERRO COM BANCO DE DADOS".$e->getMessage();
@@ -16,88 +17,146 @@ class Animes_Service{
             exit();
         } 
     }
-
-
-    function cadastarAnimes($nomeAnime, $sinopse,$genero,$dataLancamento,$statusLancamento, $animeImagem) {
-        $sql = 'insert into animes (nomeAnime, sinopse, genero, dataLancamento, statusLancamento, animeImagem) 
-        values (:nomeAnime, :sinopse, :genero, :dataLancamento, :statusLancamento, :animeImagem)';
-        $result = $this -> connection -> prepare ($sql);
-        $result -> bindValue(':nomeAnime', $nomeAnime );
-        $result -> bindValue(':sinopse', $sinopse );
-        $result -> bindValue(':genero', $genero  );
-        $result -> bindValue(':dataLancamento', $dataLancamento );
-        $result -> bindValue(':statusLancamento', $statusLancamento );
-        $result -> bindValue(':animeImagem', $animeImagem );
-        $result -> execute();
+    
+    public function buscarAnime($nomeAnime){
+        $cmd = $this->pdo->prepare("SELECT * FROM animes WHERE nomeAnime = :an");
+        $cmd->bindValue(":an", $nomeAnime);
+        $cmd->execute();
+        $res = $cmd->fetch(PDO::FETCH_ASSOC);
+        return $res;
+    }
+    
+    public function buscarAnimeById($id){
+        $cmd = $this->pdo->prepare("SELECT * FROM animes WHERE idAnime = :id");
+        $cmd->bindValue(":id", $id);
+        $cmd->execute();
+        $res = $cmd->fetch(PDO::FETCH_ASSOC);
+        return $res;
     }
 
 
-    //LER
-    /*$sql = 'select * from animes';
-    $result = $connection -> prepare ($sql);
-    $result -> execute();
-    var_dump($result -> fetchAll(PDO::FETCH_OBJ));*/
+    function cadastarAnimes($nomeAnime, $sinopse,$genero,$dataLancamento,$statusLancamento, $animeImagem) {
+        $cmd = $this->pdo->prepare ('INSERT INTO animes (nomeAnime, sinopse, genero, dataLancamento, statusLancamento, animeImagem) 
+        VALUES (:nomeAnime, :sinopse, :genero, :dataLancamento, :statusLancamento, :animeImagem)');
+        $cmd -> bindValue(':nomeAnime', $nomeAnime );
+        $cmd -> bindValue(':sinopse', $sinopse );
+        $cmd -> bindValue(':genero', $genero  );
+        $cmd -> bindValue(':dataLancamento', $dataLancamento );
+        $cmd -> bindValue(':statusLancamento', $statusLancamento );
+        $cmd -> bindValue(':animeImagem', $animeImagem );
+        $cmd -> execute();
+    }
     
+    public function atualizacaoDados($nomeAnime, $sinopse,$genero,$dataLancamento,$statusLancamento, $id, $animeImagem){
+        $cmd = $this->pdo->prepare("UPDATE animes SET nomeAnime = :n, sinopse = :s, genero = :g, dataLancamento= :dl, statusLancamento = :sl, animeImagem = :an WHERE idAnime = :id");
+        $cmd -> bindValue(':n', $nomeAnime );
+        $cmd -> bindValue(':s', $sinopse );
+        $cmd -> bindValue(':g', $genero  );
+        $cmd -> bindValue(':dl', $dataLancamento );
+        $cmd -> bindValue(':sl', $statusLancamento );
+        $cmd->bindValue(":id", $id);
+        $cmd -> bindValue(':an', $animeImagem );
+        $cmd->execute();
+    }
+    
+    public function excluirAnime($id_anime){
+        $cmd = $this->pdo->prepare("DELETE FROM animes WHERE idAnime = :id");//QUERY DO MYSLQ PARA EXCLUSÃO DE INSERÇÕES
+        $cmd->bindValue(":id",$id_anime);
+        $cmd->execute();
+    }
+    
+    public function recomendados($anime_atual){
+        $cmd = $this->pdo->prepare("SELECT DISTINCT idAnime, nomeAnime, animeImagem FROM animes WHERE NOT idAnime = $anime_atual ORDER BY RAND() LIMIT 3");
+        $cmd->execute();
+        
+        if ($cmd->rowCount() > 0) {//Enquanto tiverem linhas na tabela
+            foreach ($cmd as $res) {
+                $id_anime = $res['idAnime'];
+                $nomeAnime = $res['nomeAnime'];
+                $animeImagem = $res['animeImagem'];
+                echo "
+                <div class='cardRecomendados p-4 m-2 border-purple'>
+                    <a href='animes_template.php?anime=$id_anime'>
+                        <img src='./img/animes-banner/$animeImagem' alt='$nomeAnime'class='image-anime-template p-2'>
+                    </a>
+                    <p class='text-center text-light font-weight-bold display-5 text-uppercase'>$nomeAnime</p>
+                </div>";
+            }
+        }
+        
+    }
+
     public function carregarCards($reg_pag, $pg){
         $inicio = ($pg - 1) * $reg_pag;
         
-        $sql = $this->connection->prepare( "SELECT nomeAnime, sinopse, animeImagem FROM animes LIMIT $inicio,$reg_pag;");//PEGA TODOS OS VIDEOS
-        $sql->execute();
+        $cmd = $this->pdo->prepare( "SELECT idAnime, nomeAnime, sinopse, animeImagem FROM animes LIMIT $inicio,$reg_pag;");//PEGA TODOS OS VIDEOS
+        $cmd->execute();
 
-        if ($sql->rowCount() > 0) {//Enquanto tiverem linhas na tabela
-            foreach ($sql as $res) {
+        if ($cmd->rowCount() > 0) {//Enquanto tiverem linhas na tabela
+            foreach ($cmd as $res) {
+                $id_anime = $res['idAnime'];
                 $nomeAnime = $res['nomeAnime'];
                 $sinopse = $res['sinopse'];
                 $animeImagem = $res['animeImagem'];
                 echo "
-                <div class='card bg-black border-purple pb-4 cursorh-pointer'>
-                <img src='img/animes-banner/$animeImagem.jpg' class='anime-image' alt=''>
-                <div class='conteudo'>
-                    <h2 class='text-center text-light my-2'>$nomeAnime</h2>
-                    <div class='card-sinopse'>
-                        <p class='text-justify text-light'>
-                           $sinopse
-                        </p>
-                        <a href=''> Mais... </a>
-                    </div>
-                    <div class='float-right mt-3'>
-                        <div class='btn-group'>
-                            <button type='button' class='btn btn-outline-light btn-editar'>Editar</button>
-                            <button type='button' class='btn btn-outline-light btn-excluir'>Excluir</button>
+                <div class='card bg-black border-purple pb-0 cursorh-pointer'>
+                    <img src='img/animes-banner/$animeImagem' class='anime-image'>
+                    <div class='conteudo pb-3'>
+                        <h2 class='text-center text-light my-2'>$nomeAnime</h2>
+                        <div class='card-sinopse'>
+                            <p class='text-justify text-light'>
+                                $sinopse
+                            </p>
+                        </div>
+                        <a href='animes_template.php?anime=$id_anime' class='text-decoration-none'>  
+                            <div class='d-flex justify-content-center mt-3 btn btn-outline-light border-purple text-green font-weight-bold information-link'>
+                                Ver mais informações
+                            </div>
+                        </a>
+                        <div id='edit_excluir' class='float-right pt-4'>
+                            <div class='btn-group'>
+                                <button type='button' class='btn btn-outline-light btn-editar'><a href='index.php?id_anime=$id_anime' class='text-white text-decoration-none' onclick='document.getElementById('adicionarAnime').style.display='none';document.getElementById('formAnime').style.display='block';'>Editar</a></button>
+                                <button type='button' class='btn btn-outline-light btn-excluir' ><a href='index.php?id_excluir=$id_anime' class='text-white text-decoration-none'>Excluir</a></button>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>";
+                </div>";
             }
         }
-        
-        $total = $this->connection->prepare("SELECT * FROM animes;");
-        $total->execute();
-        $tp = $total->rowCount() / $reg_pag;
-        $tp = ceil($tp);
+    }
 
-        echo "<div class='paginacao'>";
+    public function paginacao($reg_pag, $pg){
+        $total = $this->pdo->prepare("SELECT * FROM animes;");
+        $total->execute();
+        if($total->rowCount() == 0){
+            $tp = 1 / $reg_pag;
+        }else{
+            $tp = $total->rowCount() / $reg_pag;
+        }
+        $tp = ceil($tp);
+        
+        echo "<div class='d-flex justify-content-center mb-4'>";
         $anterior = $pg - 1;
         $proximo = $pg + 1;
         if ($pg == $tp && $anterior == 0) {
-            echo "<a href='?pagina=$anterior' style='pointer-events: none; opacity: 0.5;'><img src='img/back.png' style='widht:50px; height:50px;'></a>"
-            . " | " .
-            "<a href='?pagina=$proximo' style='pointer-events: none; opacity: 0.5;'><img src='img/next.png' style='widht:50px; height:50px;'></a>" .
+            echo "<a href='?pagina=$anterior' style='pointer-events: none; opacity: 0.5;'><svg class='paginacao-stroke' xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 24 24' fill='none' stroke='#853bd4' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><path d='M19 12H6M12 5l-7 7 7 7'/></svg></a>"
+            .
+            "<a href='?pagina=$proximo' style='pointer-events: none; opacity: 0.5;'><svg class='paginacao-stroke' xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 24 24' fill='none' stroke='#853bd4' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><path d='M5 12h13M12 5l7 7-7 7'/></svg></a>" .
             "</div>";
         } else if ($pg == $tp) {
-            echo "<a href='?pagina=$anterior'><img src='img/back.png' style='widht:50px; height:50px;'></a>"
-            . " | " .
-            "<a href='?pagina=$proximo' style='pointer-events: none; opacity: 0.5;'><img src='img/next.png' style='widht:50px; height:50px;'></a>" .
+            echo "<a href='?pagina=$anterior'><svg class='paginacao-stroke' xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 24 24' fill='none' stroke='#853bd4' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><path d='M19 12H6M12 5l-7 7 7 7'/></svg></a>"
+            .
+            "<a href='?pagina=$proximo' style='pointer-events: none; opacity: 0.5;'><svg class='paginacao-stroke' xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 24 24' fill='none' stroke='#853bd4' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><path d='M5 12h13M12 5l7 7-7 7'/></svg></a>" .
             "</div>";
         } else if ($anterior == 0) {
-            echo "<a href='?pagina=$anterior' style='pointer-events: none; opacity: 0.5;'><img src='img/back.png' style='widht:50px; height:50px;'></a>"
-            . " | " .
-            "<a href='?pagina=$proximo' ><img src='img/next.png' style='widht:50px; height:50px;'></a>" .
+            echo "<a href='?pagina=$anterior' style='pointer-events: none; opacity: 0.5;'><svg class='paginacao-stroke' xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 24 24' fill='none' stroke='#853bd4' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><path d='M19 12H6M12 5l-7 7 7 7'/></svg></a>"
+            .
+            "<a href='?pagina=$proximo'><svg class='paginacao-stroke' xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 24 24' fill='none' stroke='#853bd4' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><path d='M5 12h13M12 5l7 7-7 7'/></svg></a>" .
             "</div>";
         } else {
-            echo "<a href='?pagina=$anterior'><img src='img/back.png' style='widht:50px; height:50px;'></a>"
-            . " | " .
-            "<a href='?pagina=$proximo'><img src='img/next.png' style='widht:50px; height:50px;'></a>" .
+            echo "<a href='?pagina=$anterior'><svg class='paginacao-stroke' xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 24 24' fill='none' stroke='#853bd4' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><path d='M19 12H6M12 5l-7 7 7 7'/></svg></a>"
+            .
+            "<a href='?pagina=$proximo'><svg class='paginacao-stroke' xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 24 24' fill='none' stroke='#853bd4' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><path d='M5 12h13M12 5l7 7-7 7'/></svg></a>" .
             "</div>";
         }
     }
