@@ -95,14 +95,14 @@ class User_Service{
         $cmd->execute();
     }
     public function buscarComentario($anime_id){
-        $cmd = $this->pdo->prepare("SELECT mensagem FROM comentarios WHERE anime_id = :id;");
+        $cmd = $this->pdo->prepare("SELECT * FROM comentarios WHERE anime_id = :id;");
         $cmd->bindValue(":id", $anime_id);
         $cmd->execute();
 
         if ($cmd->rowCount() > 0) {//Enquanto tiverem linhas na tabela
             foreach ($cmd as $res) {
                 $mensagem = $res['mensagem'];
-                $id = $_SESSION['user'];
+                $id = $res['user_id'];
                 $sql = $this->pdo->prepare("SELECT nome, img_user FROM users WHERE id = $id");
                 $sql->execute();
                 $resp = $sql->fetch(PDO::FETCH_ASSOC);

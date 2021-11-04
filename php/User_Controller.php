@@ -63,6 +63,7 @@ if(isset($_POST['btn-comentar'])){
             echo "ESCREVA ALGUM COMENTÁRIO";
         }else{
             $user_service->salvarComentario($mensagem, $user_id, $id_anime);
+            header("Location: ../animes_template.php?anime=$id_anime");
         }
     }
 }
